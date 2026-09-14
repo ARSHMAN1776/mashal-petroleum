@@ -118,13 +118,14 @@ export default function ParcoPage() {
             <div className="lg:col-span-8 xl:col-span-7 space-y-6 sm:space-y-8">
               {/* Brand Telemetry Pill & No. 1 Ranking Badge */}
               <div className="flex flex-wrap items-center gap-2.5">
-                <div className="inline-flex items-center gap-2 bg-black/60 backdrop-blur-md border border-white/20 px-3.5 py-1.5 rounded-full text-xs font-medium text-[#FF858A] shadow-2xl">
-                  <ParcoBadge />
-                  <span className="tracking-wide">Official Total PARCO Forecourt</span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-ping ml-0.5" />
+                <div className="inline-flex items-center gap-2 bg-black/60 backdrop-blur-md border border-white/20 px-3.5 py-1.5 rounded-full text-xs font-medium text-white shadow-2xl">
+                  <span className="w-2 h-2 rounded-full bg-red-400 animate-pulse" />
+                  <span className="text-[#FF858A] font-semibold">Total PARCO</span>
+                  <span className="text-neutral-400">&bull;</span>
+                  <span className="text-neutral-200">Authorized Forecourt</span>
                 </div>
 
-                <div className="inline-flex items-center gap-1.5 bg-[#C89A3C]/20 border border-[#F3C351]/40 backdrop-blur-md px-3 py-1.5 rounded-full text-[11px] font-semibold text-[#F3C351] shadow-lg">
+                <div className="inline-flex items-center gap-1.5 bg-black/60 border border-[#F3C351]/40 backdrop-blur-md px-3.5 py-1.5 rounded-full text-xs font-semibold text-[#F3C351] shadow-lg">
                   <Award size={13} className="text-[#F3C351]" />
                   <span>No. 1 Petrol in Rahim Yar Khan</span>
                 </div>

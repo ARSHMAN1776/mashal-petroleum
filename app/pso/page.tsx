@@ -106,10 +106,11 @@ export default function PsoPage() {
             {/* Left Content Column */}
             <div className="lg:col-span-8 xl:col-span-7 space-y-6 sm:space-y-8">
               {/* Brand Telemetry Pill */}
-              <div className="inline-flex items-center gap-2.5 bg-black/60 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full text-xs font-medium text-[#4ADE80] shadow-2xl">
-                <PsoBadge />
-                <span className="tracking-wide">Official Pakistan State Oil (PSO) Franchise</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping ml-1" />
+              <div className="inline-flex items-center gap-2 bg-black/60 backdrop-blur-md border border-white/20 px-3.5 py-1.5 rounded-full text-xs font-medium text-white shadow-2xl">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-[#4ADE80] font-semibold">Pakistan State Oil (PSO)</span>
+                <span className="text-neutral-400">&bull;</span>
+                <span className="text-neutral-200">Official Franchise</span>
               </div>
 
               {/* Headline */}
