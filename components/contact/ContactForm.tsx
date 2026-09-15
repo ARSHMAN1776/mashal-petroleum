@@ -93,11 +93,11 @@ export const ContactForm: React.FC = () => {
   return (
     <div className="bg-white border border-neutral-200/90 p-6 sm:p-8 lg:p-9 rounded-[24px] shadow-[0_12px_40px_rgba(0,0,0,0.04)] relative overflow-hidden">
       {/* Decorative top gold gradient accent line */}
-      <div className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#F3C351] to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#C89A3C] to-transparent" />
 
       <div className="mb-6 sm:mb-7 space-y-1.5">
         <div className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#8C7238] uppercase tracking-[0.2em]">
-          <Sparkles size={13} className="text-[#F3C351]" />
+          <Sparkles size={13} className="text-[#C89A3C]" />
           <span>DIRECT DISPATCH FORM</span>
         </div>
         <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#0A111F] tracking-tight">
@@ -109,7 +109,7 @@ export const ContactForm: React.FC = () => {
       </div>
 
       {submitted ? (
-        <div className="bg-[#FAF8F5] border border-[#F3C351]/40 p-7 sm:p-8 rounded-2xl text-center space-y-4 animate-in fade-in duration-300">
+        <div className="bg-[#FAF8F5] border border-[#C89A3C]/40 p-7 sm:p-8 rounded-2xl text-center space-y-4 animate-in fade-in duration-300">
           <div className="w-12 h-12 rounded-full bg-emerald-100 border border-emerald-300/80 flex items-center justify-center text-emerald-700 mx-auto shadow-sm">
             <CheckCircle size={24} />
           </div>
@@ -160,17 +160,17 @@ export const ContactForm: React.FC = () => {
                     onClick={() => setValue("inquiryType", opt.id)}
                     className={`flex flex-col items-start p-3 rounded-xl border text-left transition-all relative ${
                       isSelected
-                        ? "bg-[#050D19] border-[#050D19] text-white shadow-md"
+                        ? "bg-[#FAF6EE] border-[#C89A3C] text-[#15120D] shadow-xs"
                         : "bg-[#FAFAFA] border-neutral-200/90 text-[#0A111F] hover:border-neutral-300 hover:bg-neutral-50"
                     }`}
                   >
                     <div className="flex items-center justify-between w-full mb-1.5">
                       <IconComponent
                         size={15}
-                        className={isSelected ? "text-[#F3C351]" : "text-[#8C7238]"}
+                        className={isSelected ? "text-[#C89A3C]" : "text-[#8C7238]"}
                       />
                       {isSelected && (
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#F3C351]" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#C89A3C]" />
                       )}
                     </div>
                     <span className="text-xs font-semibold leading-tight line-clamp-1">
@@ -178,7 +178,7 @@ export const ContactForm: React.FC = () => {
                     </span>
                     <span
                       className={`text-[10px] leading-tight line-clamp-1 mt-0.5 ${
-                        isSelected ? "text-neutral-400" : "text-[#7A8494]"
+                        isSelected ? "text-[#8C7238]" : "text-[#7A8494]"
                       }`}
                     >
                       {opt.sub}
@@ -210,7 +210,7 @@ export const ContactForm: React.FC = () => {
                 type="text"
                 placeholder="e.g. Tariq Mahmood"
                 {...register("name")}
-                className={`w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border bg-[#FAFAFA] text-[#0A111F] placeholder:text-[#9A9180] transition-all focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#F3C351]/30 focus:border-[#F3C351] ${
+                className={`w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border bg-[#FAFAFA] text-[#0A111F] placeholder:text-[#9A9180] transition-all focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#C89A3C]/30 focus:border-[#C89A3C] ${
                   errors.name ? "border-red-500 bg-red-50/20" : "border-neutral-200"
                 }`}
               />
@@ -235,7 +235,7 @@ export const ContactForm: React.FC = () => {
                 type="tel"
                 placeholder="0328 6704501 or +92 328 6704501"
                 {...register("phone")}
-                className={`w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border bg-[#FAFAFA] text-[#0A111F] placeholder:text-[#9A9180] transition-all focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#F3C351]/30 focus:border-[#F3C351] ${
+                className={`w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border bg-[#FAFAFA] text-[#0A111F] placeholder:text-[#9A9180] transition-all focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#C89A3C]/30 focus:border-[#C89A3C] ${
                   errors.phone ? "border-red-500 bg-red-50/20" : "border-neutral-200"
                 }`}
               />
@@ -264,7 +264,7 @@ export const ContactForm: React.FC = () => {
               rows={4}
               placeholder="Describe your inquiry, fleet volume requirements, scheduled arrival, or forecourt feedback..."
               {...register("message")}
-              className={`w-full text-xs sm:text-sm p-3.5 rounded-xl border bg-[#FAFAFA] text-[#0A111F] placeholder:text-[#9A9180] transition-all focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#F3C351]/30 focus:border-[#F3C351] leading-relaxed ${
+              className={`w-full text-xs sm:text-sm p-3.5 rounded-xl border bg-[#FAFAFA] text-[#0A111F] placeholder:text-[#9A9180] transition-all focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#C89A3C]/30 focus:border-[#C89A3C] leading-relaxed ${
                 errors.message ? "border-red-500 bg-red-50/20" : "border-neutral-200"
               }`}
             />
@@ -281,7 +281,7 @@ export const ContactForm: React.FC = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full inline-flex items-center justify-center gap-2 bg-[#050D19] hover:bg-[#0A172D] disabled:bg-neutral-400 text-white text-xs sm:text-sm font-semibold py-3 sm:py-3.5 px-6 rounded-full transition-all shadow-md active:scale-98 group cursor-pointer"
+              className="w-full inline-flex items-center justify-center gap-2 bg-[#C89A3C] hover:bg-[#B68B34] disabled:bg-neutral-300 text-white text-xs sm:text-sm font-semibold py-3 sm:py-3.5 px-6 rounded-full transition-all shadow-[0_4px_16px_rgba(200,154,60,0.25)] hover:shadow-[0_6px_20px_rgba(200,154,60,0.35)] active:scale-98 group cursor-pointer"
             >
               {isSubmitting ? (
                 <>
@@ -291,7 +291,7 @@ export const ContactForm: React.FC = () => {
               ) : (
                 <>
                   <span>Dispatch Inquiries to Management</span>
-                  <Send size={14} className="text-[#F3C351] group-hover:translate-x-1 transition-transform" />
+                  <Send size={14} className="text-white group-hover:translate-x-1 transition-transform" />
                 </>
               )}
             </button>

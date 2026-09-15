@@ -46,12 +46,12 @@ export default function ContactPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <div className="bg-[#FAF8F5] text-[#0A111F] min-h-screen selection:bg-[#F3C351] selection:text-[#050D19]">
+    <div className="bg-[#FAF8F5] text-[#0A111F] min-h-screen selection:bg-[#C89A3C] selection:text-white">
       {/* 1. Cinematic Luxury Hero Header */}
-      <section className="relative bg-[#030914] text-white py-16 sm:py-24 lg:py-28 overflow-hidden border-b border-white/10">
+      <section className="relative bg-[#FAF9F6] text-[#15120D] py-16 sm:py-24 lg:py-28 overflow-hidden border-b border-[#EAE5D9]">
         {/* Subtle Ambient Radial Lighting */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[350px] bg-gradient-to-b from-[#F3C351]/15 via-transparent to-transparent blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[300px] bg-gradient-to-tl from-emerald-500/10 via-transparent to-transparent blur-3xl pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[350px] bg-gradient-to-b from-[#C89A3C]/10 via-[#F4EFE4]/40 to-transparent blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[300px] bg-gradient-to-tl from-emerald-500/5 via-transparent to-transparent blur-3xl pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4 sm:space-y-6">
           <motion.div
@@ -60,32 +60,34 @@ export default function ContactPage() {
             transition={{ duration: 0.6 }}
             className="flex items-center justify-center gap-3"
           >
-            <div className="h-[1.5px] w-8 sm:w-14 bg-gradient-to-r from-transparent via-[#F3C351] to-[#F3C351]" />
-            <div className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.25em] text-[#F3C351]">
-              <FlameIcon size={14} className="text-[#F3C351] flex-shrink-0" />
+            <div className="h-[1.5px] w-8 sm:w-14 bg-gradient-to-r from-transparent via-[#C89A3C] to-[#C89A3C]" />
+            <div className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.25em] text-[#8C7238]">
+              <FlameIcon size={14} className="text-[#C89A3C] flex-shrink-0" />
               <span>DIRECT FORECOURT &bull; CORPORATE ACCESS</span>
             </div>
-            <div className="h-[1.5px] w-8 sm:w-14 bg-gradient-to-l from-transparent via-[#F3C351] to-[#F3C351]" />
+            <div className="h-[1.5px] w-8 sm:w-14 bg-gradient-to-l from-transparent via-[#C89A3C] to-[#C89A3C]" />
           </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-serif text-3xl sm:text-5xl lg:text-6xl text-white font-normal tracking-tight max-w-3xl mx-auto leading-[1.12]"
+            className="font-serif text-3xl sm:text-5xl lg:text-6xl text-[#15120D] font-normal tracking-tight max-w-3xl mx-auto leading-[1.12]"
           >
             Connect with{" "}
-            <span className="text-[#F3C351]">Mashal Petroleum.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#9E7324] via-[#C89A3C] to-[#8C7238]">
+              Mashal Petroleum.
+            </span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-xs sm:text-sm md:text-base text-neutral-300 max-w-2xl mx-auto leading-relaxed font-normal"
+            className="text-xs sm:text-sm md:text-base text-[#524C42] max-w-2xl mx-auto leading-relaxed font-normal"
           >
             Direct contact with our forecourt supervisors, station managers, and corporate desk across Punjab. Call us 24/7 at{" "}
-            <strong className="text-white font-semibold tabular-nums">{mashalInfo.centralPhoneDisplay}</strong> or message us via WhatsApp.
+            <strong className="text-[#15120D] font-semibold tabular-nums">{mashalInfo.centralPhoneDisplay}</strong> or message us via WhatsApp.
           </motion.p>
 
           {/* Quick Action Navigation Buttons */}
@@ -97,9 +99,9 @@ export default function ContactPage() {
           >
             <a
               href={`tel:${mashalInfo.centralPhone}`}
-              className="inline-flex items-center gap-2 bg-[#F3C351] hover:bg-[#E5B53F] text-[#050D19] font-semibold px-4 py-2.5 rounded-full transition-all shadow-md active:scale-95"
+              className="inline-flex items-center gap-2 bg-[#C89A3C] hover:bg-[#B68B34] text-white font-semibold px-4 py-2.5 rounded-full transition-all shadow-[0_2px_12px_rgba(200,154,60,0.25)] active:scale-95"
             >
-              <Phone size={13} className="text-[#050D19]" />
+              <Phone size={13} className="text-white" />
               <span className="tabular-nums">Call 24/7 ({mashalInfo.centralPhoneDisplay})</span>
             </a>
 
@@ -107,9 +109,9 @@ export default function ContactPage() {
               href={`https://wa.me/${parcoStation.whatsapp}?text=Hello%20Mashal%20Petroleum,%20I%20have%20an%20inquiry%20regarding%20Total%20PARCO%20Station%20(Khanpur%20Road,%20Rahim%20Yar%20Khan)`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/15 border border-white/20 text-white px-3.5 py-2.5 rounded-full transition-all active:scale-95"
+              className="inline-flex items-center gap-1.5 bg-white hover:bg-neutral-50 border border-neutral-200/90 text-[#15120D] px-3.5 py-2.5 rounded-full transition-all shadow-xs active:scale-95"
             >
-              <MessageSquare size={13} className="text-[#F3C351]" />
+              <MessageSquare size={13} className="text-parco-red" />
               <span>WhatsApp PARCO (RYK)</span>
             </a>
 
@@ -117,9 +119,9 @@ export default function ContactPage() {
               href={`https://wa.me/${psoStation.whatsapp}?text=Hello%20Mashal%20Petroleum,%20I%20have%20an%20inquiry%20regarding%20PSO%20Station%20(Raiwind,%20Lahore)`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/15 border border-white/20 text-white px-3.5 py-2.5 rounded-full transition-all active:scale-95"
+              className="inline-flex items-center gap-1.5 bg-white hover:bg-neutral-50 border border-neutral-200/90 text-[#15120D] px-3.5 py-2.5 rounded-full transition-all shadow-xs active:scale-95"
             >
-              <MessageSquare size={13} className="text-[#4ADE80]" />
+              <MessageSquare size={13} className="text-pso-green" />
               <span>WhatsApp PSO (Lahore)</span>
             </a>
           </motion.div>
@@ -130,7 +132,7 @@ export default function ContactPage() {
       <section className="relative -mt-8 sm:-mt-10 z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
           {/* Channel 1: 24/7 Central Hotline */}
-          <div className="bg-white border border-neutral-200/90 rounded-[20px] p-5 sm:p-6 shadow-[0_8px_30px_rgba(0,0,0,0.04)] flex flex-col justify-between space-y-4 hover:border-[#F3C351]/80 transition-all">
+          <div className="bg-white border border-neutral-200/90 rounded-[20px] p-5 sm:p-6 shadow-[0_8px_30px_rgba(0,0,0,0.04)] flex flex-col justify-between space-y-4 hover:border-[#C89A3C]/80 transition-all">
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <div className="w-10 h-10 rounded-full bg-[#FAF8F5] border border-neutral-200 flex items-center justify-center text-[#8C7238]">
@@ -304,8 +306,8 @@ export default function ContactPage() {
               </div>
 
               {/* Quality & Volumetric Calibration Assurance Badge */}
-              <div className="bg-[#FAF8F5] border border-[#F3C351]/30 p-4 sm:p-5 rounded-[18px] flex items-start gap-3.5 shadow-sm">
-                <div className="w-9 h-9 rounded-full bg-[#F3C351]/20 border border-[#F3C351]/40 flex items-center justify-center text-[#8C7238] flex-shrink-0 mt-0.5">
+              <div className="bg-[#FAF8F5] border border-[#C89A3C]/30 p-4 sm:p-5 rounded-[18px] flex items-start gap-3.5 shadow-xs">
+                <div className="w-9 h-9 rounded-full bg-[#FAF6EE] border border-[#E6DEC8] flex items-center justify-center text-[#8C7238] flex-shrink-0 mt-0.5">
                   <ShieldCheck size={18} />
                 </div>
                 <div className="space-y-0.5">

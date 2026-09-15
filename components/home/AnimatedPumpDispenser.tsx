@@ -19,10 +19,10 @@ const fuelGrades = [
     id: "hioctane",
     name: "Hi-Octane 97",
     tag: "RON 97 Performance",
-    color: "#F3C351",
-    glow: "rgba(243, 195, 81, 0.35)",
-    bg: "rgba(243, 195, 81, 0.1)",
-    border: "rgba(243, 195, 81, 0.4)",
+    color: "#C89A3C",
+    glow: "rgba(200, 154, 60, 0.25)",
+    bg: "rgba(200, 154, 60, 0.08)",
+    border: "rgba(200, 154, 60, 0.4)",
     rate: "High Compression",
     density: "0.745 kg/L",
   },
@@ -30,10 +30,10 @@ const fuelGrades = [
     id: "diesel",
     name: "Euro-5 Diesel",
     tag: "Low-Sulfur Cetane",
-    color: "#4ADE80",
-    glow: "rgba(74, 222, 128, 0.35)",
-    bg: "rgba(74, 222, 128, 0.1)",
-    border: "rgba(74, 222, 128, 0.4)",
+    color: "#0B4A2D",
+    glow: "rgba(11, 74, 45, 0.2)",
+    bg: "rgba(11, 74, 45, 0.08)",
+    border: "rgba(11, 74, 45, 0.35)",
     rate: "High-Torque Flow",
     density: "0.835 kg/L",
   },
@@ -41,10 +41,10 @@ const fuelGrades = [
     id: "super",
     name: "Super Unleaded",
     tag: "RON 92 Pure",
-    color: "#FF6B6B",
-    glow: "rgba(255, 107, 107, 0.35)",
-    bg: "rgba(255, 107, 107, 0.1)",
-    border: "rgba(255, 107, 107, 0.4)",
+    color: "#C1272D",
+    glow: "rgba(193, 39, 45, 0.2)",
+    bg: "rgba(193, 39, 45, 0.08)",
+    border: "rgba(193, 39, 45, 0.35)",
     rate: "Everyday Drive",
     density: "0.730 kg/L",
   },
@@ -76,52 +76,52 @@ export const AnimatedPumpDispenser: React.FC = () => {
     <div className="relative w-full max-w-md mx-auto select-none">
       {/* Ambient Outer Glow */}
       <div
-        className="absolute -inset-2 rounded-[32px] blur-2xl transition-all duration-700 opacity-60 pointer-events-none"
+        className="absolute -inset-2 rounded-[32px] blur-2xl transition-all duration-700 opacity-70 pointer-events-none"
         style={{
           background: `radial-gradient(circle, ${selectedGrade.glow} 0%, transparent 70%)`,
         }}
       />
 
       {/* Main Luxury Dispenser Body */}
-      <div className="relative bg-[#050D19]/95 border border-white/15 rounded-[28px] p-5 sm:p-6 shadow-2xl backdrop-blur-xl overflow-hidden">
+      <div className="relative bg-white border border-[#E6DEC8] rounded-[28px] p-5 sm:p-6 shadow-[0_20px_50px_rgba(200,154,60,0.08)] backdrop-blur-xl overflow-hidden">
         {/* Top Metallic Energy Strip */}
         <div
-          className="absolute top-0 left-0 right-0 h-[3px] transition-all duration-500"
+          className="absolute top-0 left-0 right-0 h-[2.5px] transition-all duration-500"
           style={{
             background: `linear-gradient(90deg, transparent, ${selectedGrade.color}, transparent)`,
           }}
         />
 
         {/* 1. Dispenser Header: Brand & Live Station Status */}
-        <div className="flex items-center justify-between pb-3.5 border-b border-white/10">
+        <div className="flex items-center justify-between pb-3.5 border-b border-[#EAE5D9]">
           <div className="flex items-center gap-2.5">
-            <div className="w-7 h-7 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#F3C351] shadow-inner">
+            <div className="w-7 h-7 rounded-full bg-[#FAF6EE] border border-[#E6DEC8] flex items-center justify-center text-[#C89A3C] shadow-xs">
               <FlameIcon size={14} />
             </div>
             <div>
-              <span className="text-[11px] font-semibold text-white tracking-tight block">
+              <span className="text-[11px] font-semibold text-[#15120D] tracking-tight block">
                 Digital Calibrated Dispenser
               </span>
-              <span className="text-[9px] text-neutral-400 block -mt-0.5">
+              <span className="text-[9px] text-[#7A7265] block -mt-0.5">
                 Mashal Forecourt Telemetry &bull; Unit 02
               </span>
             </div>
           </div>
 
-          <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-[10px] font-medium">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+          <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-medium">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
             <span>Active Flow</span>
           </div>
         </div>
 
         {/* 2. Fuel Grade Selector Tabs */}
         <div className="pt-3 pb-4">
-          <div className="text-[9px] font-semibold text-neutral-400 uppercase tracking-wider mb-2 flex items-center justify-between">
+          <div className="text-[9px] font-semibold text-[#7A7265] uppercase tracking-wider mb-2 flex items-center justify-between">
             <span>Select Product Stream</span>
-            <span className="text-[#F3C351] text-[10px]">Refinery Direct</span>
+            <span className="text-[#8C7238] font-medium text-[10px]">Refinery Direct</span>
           </div>
 
-          <div className="grid grid-cols-3 gap-1.5 p-1 bg-black/40 rounded-xl border border-white/10">
+          <div className="grid grid-cols-3 gap-1.5 p-1 bg-[#FAF8F5] rounded-xl border border-[#E6DEC8]">
             {fuelGrades.map((grade) => {
               const isSelected = selectedGrade.id === grade.id;
               return (
@@ -131,8 +131,8 @@ export const AnimatedPumpDispenser: React.FC = () => {
                   onClick={() => setSelectedGrade(grade)}
                   className={`py-2 px-2 rounded-lg text-center transition-all relative ${
                     isSelected
-                      ? "bg-white/10 shadow-sm border border-white/20"
-                      : "hover:bg-white/5 text-neutral-400"
+                      ? "bg-white shadow-sm border border-[#E2DBD0]"
+                      : "hover:bg-white/60 text-[#7A7265]"
                   }`}
                 >
                   {isSelected && (
@@ -145,11 +145,11 @@ export const AnimatedPumpDispenser: React.FC = () => {
                   )}
                   <span
                     className="text-[11px] font-bold block truncate"
-                    style={{ color: isSelected ? grade.color : "#FFFFFF" }}
+                    style={{ color: isSelected ? grade.color : "#15120D" }}
                   >
                     {grade.name}
                   </span>
-                  <span className="text-[9px] text-neutral-400 block truncate mt-0.5">
+                  <span className="text-[9px] text-[#7A7265] block truncate mt-0.5">
                     {grade.tag.split(" ")[0]}
                   </span>
                 </button>
@@ -159,24 +159,24 @@ export const AnimatedPumpDispenser: React.FC = () => {
         </div>
 
         {/* 3. Glowing Digital Ticker Glass Display */}
-        <div className="bg-[#02060E] border border-white/10 rounded-2xl p-4 sm:p-5 relative overflow-hidden shadow-inner space-y-3">
+        <div className="bg-[#FAF8F3] border border-[#E2DBD0] rounded-2xl p-4 sm:p-5 relative overflow-hidden shadow-inner space-y-3">
           {/* Subtle Digital Scanline Overlay */}
           <div
-            className="absolute inset-0 pointer-events-none opacity-10"
+            className="absolute inset-0 pointer-events-none opacity-[0.03]"
             style={{
               backgroundImage:
-                "repeating-linear-gradient(0deg, #fff, #fff 1px, transparent 1px, transparent 4px)",
+                "repeating-linear-gradient(0deg, #000, #000 1px, transparent 1px, transparent 4px)",
             }}
           />
 
           {/* Meter Label & Calibration Badge */}
-          <div className="flex items-center justify-between text-[10px] text-neutral-400 relative z-10">
-            <span className="uppercase tracking-widest font-mono flex items-center gap-1.5">
+          <div className="flex items-center justify-between text-[10px] text-[#7A7265] relative z-10">
+            <span className="uppercase tracking-widest font-mono flex items-center gap-1.5 font-medium">
               <Gauge size={12} style={{ color: selectedGrade.color }} />
               Volume Dispensed
             </span>
             <span
-              className="font-mono text-[9px] px-1.5 py-0.5 rounded border"
+              className="font-mono text-[9px] px-1.5 py-0.5 rounded border font-semibold"
               style={{
                 borderColor: selectedGrade.border,
                 color: selectedGrade.color,
@@ -189,8 +189,8 @@ export const AnimatedPumpDispenser: React.FC = () => {
 
           {/* Running Volume Digits */}
           <div className="flex items-baseline justify-between relative z-10">
-            <div className="font-mono text-3xl sm:text-4xl font-extrabold tracking-tight text-white flex items-baseline">
-              <span className="tabular-nums drop-shadow-[0_0_15px_rgba(255,255,255,0.4)]">
+            <div className="font-mono text-3xl sm:text-4xl font-extrabold tracking-tight text-[#15120D] flex items-baseline">
+              <span className="tabular-nums">
                 {liters.toFixed(2)}
               </span>
               <span
@@ -203,8 +203,8 @@ export const AnimatedPumpDispenser: React.FC = () => {
 
             {/* Micro Flow indicator */}
             <div className="text-right">
-              <span className="text-[10px] text-neutral-400 font-mono block">FLOW RATE</span>
-              <span className="font-mono text-xs text-white font-bold tabular-nums">
+              <span className="text-[10px] text-[#7A7265] font-mono block">FLOW RATE</span>
+              <span className="font-mono text-xs text-[#15120D] font-bold tabular-nums">
                 {flowPercent} L/min
               </span>
             </div>
@@ -212,16 +212,16 @@ export const AnimatedPumpDispenser: React.FC = () => {
 
           {/* Animated Flow Meter Wave / Bar */}
           <div className="relative pt-1 z-10">
-            <div className="w-full bg-white/10 h-2 rounded-full overflow-hidden p-[1px] relative">
+            <div className="w-full bg-[#EAE5D9] h-2 rounded-full overflow-hidden p-[1px] relative">
               <motion.div
                 className="h-full rounded-full relative"
                 style={{
                   width: `${flowPercent}%`,
                   backgroundColor: selectedGrade.color,
-                  boxShadow: `0 0 10px ${selectedGrade.color}`,
+                  boxShadow: `0 0 8px ${selectedGrade.color}`,
                 }}
                 animate={{
-                  opacity: [0.8, 1, 0.8],
+                  opacity: [0.85, 1, 0.85],
                 }}
                 transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
               />
@@ -232,11 +232,11 @@ export const AnimatedPumpDispenser: React.FC = () => {
         {/* 4. Animated Flow Stream & Calibration Pipeline */}
         <div className="pt-4 space-y-3">
           {/* Animated Liquid Particle Pipeline SVG */}
-          <div className="relative h-11 bg-white/[0.03] border border-white/10 rounded-xl px-3 flex items-center justify-between overflow-hidden">
+          <div className="relative h-11 bg-[#FAF8F5] border border-[#E6DEC8] rounded-xl px-3 flex items-center justify-between overflow-hidden">
             {/* Animated Light Stream Particles */}
             <div className="absolute inset-0 flex items-center overflow-hidden pointer-events-none">
               <motion.div
-                className="w-20 h-1.5 rounded-full blur-xs opacity-75"
+                className="w-20 h-1.5 rounded-full blur-xs opacity-60"
                 style={{ backgroundColor: selectedGrade.color }}
                 animate={{
                   x: ["-50px", "420px"],
@@ -248,7 +248,7 @@ export const AnimatedPumpDispenser: React.FC = () => {
                 }}
               />
               <motion.div
-                className="w-12 h-1.5 rounded-full blur-xs opacity-60 ml-12"
+                className="w-12 h-1.5 rounded-full blur-xs opacity-40 ml-12"
                 style={{ backgroundColor: selectedGrade.color }}
                 animate={{
                   x: ["-50px", "420px"],
@@ -265,40 +265,40 @@ export const AnimatedPumpDispenser: React.FC = () => {
             {/* Pipeline Step 1: Refinery Sealed */}
             <div className="flex items-center gap-1.5 relative z-10">
               <ShieldCheck size={14} style={{ color: selectedGrade.color }} />
-              <span className="text-[10px] font-semibold text-white">Refinery Sealed</span>
+              <span className="text-[10px] font-semibold text-[#15120D]">Refinery Sealed</span>
             </div>
 
             {/* Arrow Wave */}
-            <div className="text-[10px] text-neutral-500 font-mono tracking-widest relative z-10">
+            <div className="text-[10px] text-[#A89F91] font-mono tracking-widest relative z-10">
               &bull; &bull; &bull; &rarr;
             </div>
 
             {/* Pipeline Step 2: Digital Calibrated */}
             <div className="flex items-center gap-1.5 relative z-10">
-              <Zap size={13} className="text-[#F3C351]" />
-              <span className="text-[10px] font-semibold text-white">Zero Tolerance</span>
+              <Zap size={13} className="text-[#C89A3C]" />
+              <span className="text-[10px] font-semibold text-[#15120D]">Zero Tolerance</span>
             </div>
 
             {/* Arrow Wave */}
-            <div className="text-[10px] text-neutral-500 font-mono tracking-widest relative z-10">
+            <div className="text-[10px] text-[#A89F91] font-mono tracking-widest relative z-10">
               &bull; &bull; &bull; &rarr;
             </div>
 
             {/* Pipeline Step 3: Pure Combustion */}
             <div className="flex items-center gap-1.5 relative z-10">
-              <CheckCircle2 size={13} className="text-emerald-400" />
-              <span className="text-[10px] font-semibold text-white">Pure Fuel</span>
+              <CheckCircle2 size={13} className="text-emerald-600" />
+              <span className="text-[10px] font-semibold text-[#15120D]">Pure Fuel</span>
             </div>
           </div>
 
           {/* Bottom Live Forecourt Specs Pill */}
-          <div className="flex items-center justify-between text-[10px] text-neutral-300 pt-1">
+          <div className="flex items-center justify-between text-[10px] text-[#5A5245] pt-1">
             <span className="flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#F3C351]" />
-              Density: <strong className="text-white font-mono">{selectedGrade.density}</strong>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C89A3C]" />
+              Density: <strong className="text-[#15120D] font-mono">{selectedGrade.density}</strong>
             </span>
-            <span className="text-neutral-400">
-              Grade: <strong className="text-white">{selectedGrade.tag}</strong>
+            <span className="text-[#7A7265]">
+              Grade: <strong className="text-[#15120D]">{selectedGrade.tag}</strong>
             </span>
           </div>
         </div>

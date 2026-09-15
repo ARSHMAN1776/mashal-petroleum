@@ -66,27 +66,27 @@ export const IntroStrip: React.FC = () => {
             </div>
           </div>
 
-          {/* Feature 2: 24/7 Continuous Service (Dominant Midnight Navy & Warm Gold) */}
-          <div className="relative bg-[#050D19] text-white rounded-[18px] border border-white/10 p-6 sm:p-7 shadow-[0_15px_40px_rgba(3,9,20,0.25)] flex flex-col justify-between overflow-hidden group transform md:-translate-y-1 hover:shadow-[0_20px_45px_rgba(3,9,20,0.32)] transition-all">
+          {/* Feature 2: 24/7 Continuous Service (Featured Luxury White & Gold) */}
+          <div className="relative bg-gradient-to-b from-[#FFFDF9] to-[#FAF6EE] text-[#0A111F] rounded-[18px] border-2 border-[#C89A3C]/40 p-6 sm:p-7 shadow-[0_15px_35px_rgba(200,154,60,0.08)] flex flex-col justify-between overflow-hidden group transform md:-translate-y-1 hover:shadow-[0_20px_40px_rgba(200,154,60,0.14)] hover:border-[#C89A3C]/70 transition-all">
             {/* Top Gold Accent Line */}
-            <div className="absolute top-0 left-6 right-6 h-[1.5px] bg-gradient-to-r from-transparent via-[#F3C351] to-transparent" />
+            <div className="absolute top-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-[#C89A3C] to-transparent" />
 
             <div className="space-y-4 sm:space-y-5 relative z-10">
               <div className="flex items-center gap-3.5 sm:gap-4">
-                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-[#F3C351]/50 bg-[#F3C351]/15 flex items-center justify-center text-[#F3C351] flex-shrink-0 group-hover:scale-105 transition-transform shadow-[0_0_15px_rgba(243,195,81,0.2)]">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-[#C89A3C]/50 bg-[#C89A3C]/15 flex items-center justify-center text-[#C89A3C] flex-shrink-0 group-hover:scale-105 transition-transform shadow-[0_0_15px_rgba(200,154,60,0.15)]">
                   <Clock size={19} />
                 </div>
                 <div>
-                  <span className="font-serif text-2xl sm:text-3xl text-[#F3C351] font-normal tracking-tight block leading-tight drop-shadow-[0_0_12px_rgba(243,195,81,0.25)]">
+                  <span className="font-serif text-2xl sm:text-3xl text-[#C89A3C] font-normal tracking-tight block leading-tight">
                     24/7
                   </span>
-                  <h3 className="font-serif text-base sm:text-[17px] text-white font-normal tracking-tight">
+                  <h3 className="font-serif text-base sm:text-[17px] text-[#0A111F] font-normal tracking-tight">
                     Continuous Service
                   </h3>
                 </div>
               </div>
-              <div className="h-[1px] w-full bg-white/10" />
-              <p className="text-xs sm:text-[13px] text-neutral-300 leading-relaxed">
+              <div className="h-[1px] w-full bg-[#EAE5D9]" />
+              <p className="text-xs sm:text-[13px] text-[#5A6474] leading-relaxed">
                 Illuminated forecourts, clean restrooms, and operational prayer
                 halls around the clock.
               </p>

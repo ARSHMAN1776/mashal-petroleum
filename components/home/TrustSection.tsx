@@ -81,7 +81,7 @@ export const TrustSection: React.FC = () => {
           <div className="absolute top-0 bottom-0 left-5 sm:left-7 lg:left-1/2 -translate-x-1/2 w-[2px] bg-neutral-200/80 overflow-hidden">
             {/* Running Gold Energy Beam */}
             <motion.div
-              className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent via-[#F3C351] to-transparent shadow-[0_0_12px_#F3C351]"
+              className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent via-[#C89A3C] to-transparent shadow-[0_0_10px_#C89A3C]"
               animate={{
                 top: ["-20%", "110%"],
               }}
@@ -110,11 +110,10 @@ export const TrustSection: React.FC = () => {
                 >
                   {/* Left Column */}
                   <div
-                    className={`pl-12 sm:pl-16 lg:pl-0 ${
-                      isEven
+                    className={`pl-12 sm:pl-16 lg:pl-0 ${isEven
                         ? "lg:col-span-5 lg:order-1 lg:flex lg:justify-end"
                         : "lg:col-span-5 lg:order-1"
-                    }`}
+                      }`}
                   >
                     {!isEven ? (
                       /* Content Block */
@@ -161,10 +160,10 @@ export const TrustSection: React.FC = () => {
                   <div className="absolute left-5 sm:left-7 lg:left-1/2 -translate-x-1/2 lg:col-span-2 lg:static lg:flex lg:items-center lg:justify-center lg:order-2 z-20">
                     <div className="relative group">
                       {/* Pulse Ring */}
-                      <div className="absolute -inset-1.5 rounded-full bg-[#F3C351]/20 animate-ping opacity-60 pointer-events-none" />
-                      
+                      <div className="absolute -inset-1.5 rounded-full bg-[#C89A3C]/20 animate-ping opacity-60 pointer-events-none" />
+
                       {/* Node Circle */}
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#050D19] border-2 border-[#F3C351] flex items-center justify-center text-[#F3C351] shadow-[0_0_15px_rgba(243,195,81,0.3)] transition-transform group-hover:scale-110">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white border-2 border-[#C89A3C] flex items-center justify-center text-[#C89A3C] shadow-[0_0_15px_rgba(200,154,60,0.25)] transition-transform group-hover:scale-110">
                         <Icon size={18} className="sm:w-5 sm:h-5" />
                       </div>
                     </div>
@@ -172,34 +171,33 @@ export const TrustSection: React.FC = () => {
 
                   {/* Right Column */}
                   <div
-                    className={`pl-12 sm:pl-16 lg:pl-0 ${
-                      isEven
+                    className={`pl-12 sm:pl-16 lg:pl-0 ${isEven
                         ? "lg:col-span-5 lg:order-3"
                         : "lg:col-span-5 lg:order-3 lg:flex lg:justify-start"
-                    }`}
+                      }`}
                   >
                     {isEven ? (
                       /* Content Block */
-                      <div className="bg-[#050D19] text-white rounded-[18px] border border-white/10 p-5 sm:p-6 lg:p-7 shadow-[0_15px_40px_rgba(3,9,20,0.25)] hover:shadow-[0_20px_45px_rgba(3,9,20,0.32)] hover:border-[#F3C351]/50 transition-all space-y-3 group">
+                      <div className="bg-white rounded-[18px] border border-neutral-200/80 p-5 sm:p-6 lg:p-7 shadow-[0_8px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_35px_rgba(0,0,0,0.05)] hover:border-[#C89A3C]/50 transition-all space-y-3 group">
                         <div className="flex items-center justify-between">
-                          <span className="text-[9px] sm:text-[10px] font-semibold tracking-wider text-[#F3C351] uppercase">
+                          <span className="text-[9px] sm:text-[10px] font-semibold tracking-wider text-[#8C7238] uppercase">
                             {point.badge}
                           </span>
-                          <span className="font-serif text-xl text-[#F3C351]/60 font-normal">
+                          <span className="font-serif text-xl text-[#C89A3C]/40 font-normal">
                             {point.step}
                           </span>
                         </div>
 
-                        <h3 className="font-serif text-lg sm:text-xl text-white font-normal tracking-tight group-hover:text-[#F3C351] transition-colors">
+                        <h3 className="font-serif text-lg sm:text-xl text-[#0A111F] font-normal tracking-tight group-hover:text-[#C89A3C] transition-colors">
                           {point.title}
                         </h3>
 
-                        <p className="text-xs sm:text-[13px] text-neutral-300 leading-relaxed">
+                        <p className="text-xs sm:text-[13px] text-[#5A6474] leading-relaxed">
                           {point.description}
                         </p>
 
-                        <div className="pt-1 flex items-center gap-1.5 text-xs font-medium text-white">
-                          <CheckCircle2 size={13} className="text-[#F3C351]" />
+                        <div className="pt-1 flex items-center gap-1.5 text-xs font-medium text-[#0A111F]">
+                          <CheckCircle2 size={13} className="text-[#C89A3C]" />
                           <span className="text-[11px] sm:text-xs">{point.tag}</span>
                         </div>
                       </div>
@@ -228,10 +226,10 @@ export const TrustSection: React.FC = () => {
         <div className="mt-14 sm:mt-18 text-center">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 text-xs sm:text-[13px] font-semibold bg-[#050D19] hover:bg-[#0A172D] text-white px-5 py-2.5 sm:px-6 sm:py-3 rounded-full border border-white/10 shadow-md hover:shadow-lg transition-all group active:scale-95"
+            className="inline-flex items-center gap-2 text-xs sm:text-[13px] font-semibold bg-[#C89A3C] hover:bg-[#B68B34] text-white px-5 py-2.5 sm:px-6 sm:py-3 rounded-full shadow-[0_4px_16px_rgba(200,154,60,0.25)] hover:shadow-[0_6px_20px_rgba(200,154,60,0.35)] transition-all group active:scale-95"
           >
             <span>Speak with Forecourt Management</span>
-            <ArrowRight size={13} className="text-[#F3C351] group-hover:translate-x-1 transition-transform" />
+            <ArrowRight size={13} className="text-white group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </div>

@@ -32,7 +32,7 @@ export const AnimatedScrollBar: React.FC = () => {
       {/* 1. Top Screen Edge Glowing Progress Line */}
       <motion.div
         style={{ scaleX }}
-        className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#F3C351] via-[#FF858A] to-[#4ADE80] origin-left z-[100] shadow-[0_0_12px_rgba(243,195,81,0.8)] pointer-events-none"
+        className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#C89A3C] via-[#E5B53F] to-[#C89A3C] origin-left z-[100] shadow-[0_0_8px_rgba(200,154,60,0.4)] pointer-events-none"
       />
 
       {/* 2. Floating Right-Edge Luxury Minimalist Animated Track */}
@@ -42,13 +42,13 @@ export const AnimatedScrollBar: React.FC = () => {
         transition={{ duration: 0.3 }}
         className="fixed right-2.5 sm:right-3.5 top-1/2 -translate-y-1/2 z-50 pointer-events-none hidden sm:flex flex-col items-center gap-2"
       >
-        <div className="w-[3px] h-28 sm:h-36 bg-black/20 dark:bg-white/10 backdrop-blur-md rounded-full relative overflow-hidden shadow-sm">
+        <div className="w-[2.5px] h-28 sm:h-36 bg-[#EAE5D9] backdrop-blur-md rounded-full relative overflow-hidden shadow-xs">
           <motion.div
             style={{
               scaleY: smoothProgress,
               transformOrigin: "top",
             }}
-            className="w-full h-full bg-gradient-to-b from-[#F3C351] via-[#FF858A] to-[#4ADE80] rounded-full shadow-[0_0_8px_rgba(243,195,81,0.6)]"
+            className="w-full h-full bg-[#C89A3C] rounded-full shadow-[0_0_6px_rgba(200,154,60,0.5)]"
           />
         </div>
       </motion.div>

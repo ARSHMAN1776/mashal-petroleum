@@ -110,41 +110,41 @@ export const QuickServices: React.FC = () => {
 
             if (item.isFeatured) {
               return (
-                /* Featured Center Navy & Gold Card */
+                /* Featured Center White & Gold Card */
                 <Link
                   key={idx}
                   href="/services"
-                  className="group relative bg-[#050D19] text-white rounded-[18px] border border-white/10 p-5 sm:p-6 lg:p-7 shadow-[0_15px_40px_rgba(3,9,20,0.25)] flex flex-col justify-between overflow-hidden md:-translate-y-1 hover:shadow-[0_20px_50px_rgba(3,9,20,0.35)] hover:border-[#F3C351]/50 transition-all duration-300"
+                  className="group relative bg-gradient-to-b from-[#FFFDF9] to-[#FAF6EE] text-[#0A111F] rounded-[18px] border-2 border-[#C89A3C]/45 p-5 sm:p-6 lg:p-7 shadow-[0_12px_35px_rgba(200,154,60,0.08)] flex flex-col justify-between overflow-hidden md:-translate-y-1 hover:shadow-[0_18px_45px_rgba(200,154,60,0.15)] hover:border-[#C89A3C] transition-all duration-300"
                 >
                   {/* Subtle Gold Accent Top Line */}
-                  <div className="absolute top-0 left-6 right-6 h-[1.5px] bg-gradient-to-r from-transparent via-[#F3C351] to-transparent" />
+                  <div className="absolute top-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-[#C89A3C] to-transparent" />
 
                   <div className="space-y-4 sm:space-y-5 relative z-10">
                     {/* Top Icon & Arrow */}
                     <div className="flex items-center justify-between">
-                      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-[#F3C351]/50 bg-[#F3C351]/15 flex items-center justify-center text-[#F3C351] group-hover:scale-105 transition-transform shadow-[0_0_15px_rgba(243,195,81,0.2)]">
+                      <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-[#C89A3C]/50 bg-[#C89A3C]/15 flex items-center justify-center text-[#C89A3C] group-hover:scale-105 transition-transform shadow-[0_0_15px_rgba(200,154,60,0.15)]">
                         <Icon size={20} />
                       </div>
-                      <div className="w-7 h-7 rounded-full border border-[#F3C351]/40 flex items-center justify-center text-[#F3C351] group-hover:translate-x-0.5 group-hover:border-[#F3C351] group-hover:bg-[#F3C351]/10 transition-all">
+                      <div className="w-7 h-7 rounded-full border border-[#C89A3C]/40 flex items-center justify-center text-[#8C7238] group-hover:translate-x-0.5 group-hover:border-[#C89A3C] group-hover:bg-[#C89A3C]/10 transition-all">
                         <ArrowRight size={12} />
                       </div>
                     </div>
 
                     {/* Middle: Title & Subtitle */}
                     <div className="space-y-1">
-                      <h3 className="font-serif text-lg sm:text-xl text-white font-normal tracking-tight group-hover:text-[#F3C351] transition-colors">
+                      <h3 className="font-serif text-lg sm:text-xl text-[#0A111F] font-normal tracking-tight group-hover:text-[#C89A3C] transition-colors">
                         {item.title}
                       </h3>
-                      <p className="text-[9px] sm:text-[10px] font-semibold tracking-wider text-[#F3C351] uppercase">
+                      <p className="text-[9px] sm:text-[10px] font-semibold tracking-wider text-[#8C7238] uppercase">
                         {item.subtitle}
                       </p>
                     </div>
 
                     {/* Divider */}
-                    <div className="h-[1px] w-full bg-white/15" />
+                    <div className="h-[1px] w-full bg-[#EAE5D9] group-hover:bg-[#C89A3C]/30 transition-colors" />
 
                     {/* Bottom: Description */}
-                    <p className="text-xs sm:text-[13px] text-neutral-300 leading-relaxed">
+                    <p className="text-xs sm:text-[13px] text-[#5A6474] leading-relaxed">
                       {item.description}
                     </p>
                   </div>
