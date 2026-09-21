@@ -72,7 +72,7 @@ export const HeroSection: React.FC = () => {
 
             {/* Supporting Description */}
             <p className="text-xs sm:text-sm md:text-base text-[#524C42] font-normal leading-relaxed max-w-xl">
-              Mashal Petroleum operates official Total PARCO (Rahim Yar Khan) and Pakistan State Oil (Raiwind Lahore) forecourts. Dedicated to 100% refinery-sealed fuels, certified digital measurement, and dignified highway hospitality.
+              Mashaal Petroleum operates official Total PARCO (Rahim Yar Khan) and Pakistan State Oil (Raiwind Lahore) forecourts. Dedicated to 100% refinery-sealed fuels, certified digital measurement, and dignified highway hospitality.
             </p>
 
             {/* Action Buttons */}

@@ -23,7 +23,7 @@ const contactSchema = z.object({
     .min(2, { message: "Please provide your full name (at least 2 characters)." }),
   phone: z
     .string()
-    .min(10, { message: "Please enter a valid phone or WhatsApp number (e.g., 0328 6704501)." }),
+    .min(10, { message: "Please enter a valid phone or WhatsApp number (e.g., 0304 2774444)." }),
   inquiryType: z.enum(["general", "parco", "pso", "bulk_fleet"], {
     errorMap: () => ({ message: "Please select an inquiry category." }),
   }),
@@ -118,14 +118,14 @@ export const ContactForm: React.FC = () => {
               Message Dispatched
             </h4>
             <p className="text-xs sm:text-[13px] text-[#5A6474] max-w-md mx-auto leading-relaxed">
-              Thank you for reaching out to Mashal Petroleum. Our management desk will review your details and respond directly via phone or WhatsApp at{" "}
+              Thank you for reaching out to Mashaal Petroleum. Our management desk will review your details and respond directly via phone or WhatsApp at{" "}
               <strong className="text-[#0A111F] font-semibold">{mashalInfo.centralPhoneDisplay}</strong> shortly.
             </p>
           </div>
 
           <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
             <a
-              href={`https://wa.me/${mashalInfo.centralWhatsApp}?text=Hello%20Mashal%20Petroleum,%20I%20just%20submitted%20a%20form%20on%20your%20website.`}
+              href={`https://wa.me/${mashalInfo.centralWhatsApp}?text=Hello%20Mashaal%20Petroleum,%20I%20just%20submitted%20a%20form%20on%20your%20website.`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#0B4A2D] hover:bg-[#07331F] text-white text-xs font-semibold px-4 py-2.5 rounded-full transition-all shadow-sm"
@@ -233,7 +233,7 @@ export const ContactForm: React.FC = () => {
               <input
                 id="phone"
                 type="tel"
-                placeholder="0328 6704501 or +92 328 6704501"
+                placeholder="0304 2774444 or +92 304 2774444"
                 {...register("phone")}
                 className={`w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border bg-[#FAFAFA] text-[#0A111F] placeholder:text-[#9A9180] transition-all focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#C89A3C]/30 focus:border-[#C89A3C] ${
                   errors.phone ? "border-red-500 bg-red-50/20" : "border-neutral-200"

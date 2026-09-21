@@ -16,7 +16,7 @@ export const IntroStrip: React.FC = () => {
             <div className="h-[1px] w-8 sm:w-14 bg-gradient-to-r from-transparent via-[#C89A3C]/60 to-[#C89A3C]" />
             <div className="inline-flex items-center gap-1.5 text-[9px] sm:text-[11px] font-semibold uppercase tracking-[0.2em] text-[#8C7238]">
               <FlameIcon size={13} className="text-[#C89A3C] flex-shrink-0" />
-              <span>THE MASHAL COMMITMENT</span>
+              <span>THE MASHAAL COMMITMENT</span>
             </div>
             <div className="h-[1px] w-8 sm:w-14 bg-gradient-to-l from-transparent via-[#C89A3C]/60 to-[#C89A3C]" />
           </div>
@@ -32,7 +32,7 @@ export const IntroStrip: React.FC = () => {
           {/* Refined Description Paragraph */}
           <p className="text-xs sm:text-sm md:text-[15px] lg:text-base text-[#525B6A] max-w-2xl mx-auto leading-relaxed font-normal pt-1.5">
             Founded on principles of transparent measurement and motorist dignity,
-            Mashal Petroleum serves thousands of private vehicle owners, transit
+            Mashaal Petroleum serves thousands of private vehicle owners, transit
             drivers, and industrial logistics fleets daily across our Rahim Yar Khan
             and Raiwind forecourts. Whether you pull into our Total PARCO station or
             our PSO hub, you receive pure fuel, accurate meters, and a respectful

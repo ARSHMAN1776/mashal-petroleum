@@ -32,7 +32,7 @@ export const ContactPreview: React.FC = () => {
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-parco-red" />
                 <h3 className="font-serif text-lg sm:text-xl text-[#15120D] font-normal">
-                  Mashal Total PARCO Station
+                  Mashaal Total PARCO Station
                 </h3>
               </div>
               <span className="text-[11px] sm:text-xs text-parco-red font-medium">Rahim Yar Khan</span>
@@ -76,7 +76,7 @@ export const ContactPreview: React.FC = () => {
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-pso-green" />
                 <h3 className="font-serif text-lg sm:text-xl text-[#15120D] font-normal">
-                  Mashal PSO Station
+                  Mashaal PSO Station
                 </h3>
               </div>
               <span className="text-[11px] sm:text-xs text-pso-green font-medium">Raiwind, Lahore</span>

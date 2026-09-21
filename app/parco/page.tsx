@@ -28,7 +28,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "No. 1 Petrol in Rahim Yar Khan | Total PARCO Khanpur Road | Mashal Petroleum",
+  title: "No. 1 Petrol in Rahim Yar Khan | Total PARCO Khanpur Road | Mashaal Petroleum",
   description:
     "Ranked No. 1 Petrol in Rahim Yar Khan on Khanpur Road. Authorized Total PARCO fuel station offering Super RON 92, Hi-Octane RON 97, Euro-5 Diesel, 24/7 M-Mart, and verified digital volume calibration.",
   keywords: [
@@ -97,7 +97,7 @@ export default function ParcoPage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/parco/parco-hero-night.jpg"
-            alt="Mashal Total PARCO station - No. 1 Petrol in Rahim Yar Khan on Khanpur Road"
+            alt="Mashaal Total PARCO station - No. 1 Petrol in Rahim Yar Khan on Khanpur Road"
             fill
             priority
             unoptimized
@@ -137,7 +137,7 @@ export default function ParcoPage() {
                   Khanpur Road &bull; District Rahim Yar Khan
                 </p>
                 <h1 className="font-serif text-3xl sm:text-5xl lg:text-[54px] xl:text-[60px] leading-[1.08] tracking-tight font-normal text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)]">
-                  Mashal Total PARCO <span className="italic font-light text-red-300">Station</span>
+                  Mashaal Total PARCO <span className="italic font-light text-red-300">Station</span>
                 </h1>
               </div>
 
@@ -453,7 +453,7 @@ export default function ParcoPage() {
                     <span>Location &amp; Coordinates</span>
                   </div>
                   <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#15120D]">
-                    Mashal Total PARCO Station
+                    Mashaal Total PARCO Station
                   </h3>
                   <p className="text-xs text-[#7A7265] mt-1">
                     District Rahim Yar Khan &bull; Khanpur Road Corridor

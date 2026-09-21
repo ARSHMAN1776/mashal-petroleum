@@ -41,13 +41,13 @@ export const Navbar: React.FC = () => {
         <Link
           href="/"
           className="flex items-center gap-2 sm:gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C89A3C] rounded"
-          aria-label="Mashal Petroleum Home"
+          aria-label="Mashaal Petroleum Home"
         >
           <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#FAF6EE] border border-[#E6DEC8] flex items-center justify-center text-[#C89A3C] group-hover:scale-105 transition-transform shadow-[0_0_10px_rgba(200,154,60,0.15)]">
             <FlameIcon size={16} />
           </div>
           <span className="font-serif text-base sm:text-lg tracking-tight font-normal text-[#15120D] group-hover:text-[#C89A3C] transition-colors">
-            Mashal Petroleum
+            Mashaal Petroleum
           </span>
         </Link>
 

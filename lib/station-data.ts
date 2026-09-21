@@ -43,14 +43,14 @@ export interface StationData {
 }
 
 export const mashalInfo = {
-  name: "Mashal Petroleum",
+  name: "Mashaal Petroleum",
   tagline: "Two forecourts, one standard of integrity.",
   description:
-    "Mashal Petroleum is an independent, family-operated fuel retail enterprise in Pakistan. We operate two premier forecourts under official Total PARCO (Khanpur Road, District Rahim Yar Khan) and Pakistan State Oil (Raiwind, Lahore) franchises, bringing verifiable measurement, clean fuels, and well-maintained rest amenities to motorists and commercial fleets.",
+    "Mashaal Petroleum is an independent, family-operated fuel retail enterprise in Pakistan. We operate two premier forecourts under official Total PARCO (Khanpur Road, District Rahim Yar Khan) and Pakistan State Oil (Raiwind, Lahore) franchises, bringing verifiable measurement, clean fuels, and well-maintained rest amenities to motorists and commercial fleets.",
   headquarters: "Rahim Yar Khan & Lahore, Punjab, Pakistan",
-  centralPhone: "+923286704501",
-  centralPhoneDisplay: "0328 6704501",
-  centralWhatsApp: "923286704501",
+  centralPhone: "+923042774444",
+  centralPhoneDisplay: "0304 2774444",
+  centralWhatsApp: "923042774444",
   centralEmail: "management@mashalpetroleum.pk",
   established: "Operating with pride across Punjab",
 };
@@ -58,14 +58,14 @@ export const mashalInfo = {
 export const parcoStation: StationData = {
   id: "parco",
   brand: "PARCO",
-  name: "Mashal Total PARCO Station",
+  name: "Mashaal Total PARCO Station",
   tagline: "No. 1 Petrol in Rahim Yar Khan & Fuel Excellence on Khanpur Road",
   shortAddress: "Khanpur Road, District Rahim Yar Khan",
   fullAddress: "Khanpur Road, District Rahim Yar Khan, Punjab, Pakistan",
   city: "Rahim Yar Khan",
-  phone: "+923286704501",
-  phoneDisplay: "0328 6704501",
-  whatsapp: "923286704501",
+  phone: "+923042774444",
+  phoneDisplay: "0304 2774444",
+  whatsapp: "923042774444",
   hours: "Open 24 Hours, 7 Days a Week",
   googleMapsUrl: "https://share.google/l7gvmlbK6ZpSo1mBr",
   embedMapUrl:
@@ -133,23 +133,23 @@ export const parcoStation: StationData = {
   gallery: [
     {
       src: "/images/parco/parco-mashaal-night.jpg",
-      alt: "Mashal Total PARCO station illuminated at night with red canopy, Excellium totem, and Mashaal brand name on Khanpur Road, Rahim Yar Khan",
-      caption: "Mashal Total PARCO flagship forecourt at night with illuminated red canopy and digital dispenser islands.",
+      alt: "Mashaal Total PARCO station illuminated at night with red canopy, Excellium totem, and Mashaal brand name on Khanpur Road, Rahim Yar Khan",
+      caption: "Mashaal Total PARCO flagship forecourt at night with illuminated red canopy and digital dispenser islands.",
     },
     {
       src: "/images/parco/parco-carwash.jpg",
-      alt: "Automated Car Wash facility and QUARTZ Auto Service bay with solar rooftop at Mashal Total PARCO Rahim Yar Khan",
+      alt: "Automated Car Wash facility and QUARTZ Auto Service bay with solar rooftop at Mashaal Total PARCO Rahim Yar Khan",
       caption: "High-pressure automatic car wash facility and certified TotalEnergies QUARTZ auto service station.",
     },
     {
       src: "/images/parco/parco-day-canopy.jpg",
-      alt: "Mashal Total PARCO station daytime forecourt with high-clearance canopy and Excellium dispenser islands in Rahim Yar Khan",
+      alt: "Mashaal Total PARCO station daytime forecourt with high-clearance canopy and Excellium dispenser islands in Rahim Yar Khan",
       caption: "Daytime forecourt with multi-lane canopy and Excellium digital dispensers on Khanpur Road.",
     },
     {
       src: "/images/parco/parco-mart.jpg",
-      alt: "Mashal Petroleum Welcome 24/7 convenience store with beverage coolers and travel essentials in Rahim Yar Khan",
-      caption: "Mashal Petroleum on-site Welcome mart with hot tea, snacks, packaged foods, and lubricants.",
+      alt: "Mashaal Petroleum Welcome 24/7 convenience store with beverage coolers and travel essentials in Rahim Yar Khan",
+      caption: "Mashaal Petroleum on-site Welcome mart with hot tea, snacks, packaged foods, and lubricants.",
     },
     {
       src: "/images/parco/parco-totem-night.jpg",
@@ -172,14 +172,14 @@ export const parcoStation: StationData = {
 export const psoStation: StationData = {
   id: "pso",
   brand: "PSO",
-  name: "Mashal PSO Station",
+  name: "Mashaal PSO Station",
   tagline: "Flagship Pakistan State Oil Forecourt in Raiwind",
   shortAddress: "Raiwind, Lahore",
   fullAddress: "Raiwind Road, Raiwind, Lahore, Punjab, Pakistan",
   city: "Lahore",
-  phone: "+923286704501",
-  phoneDisplay: "0328 6704501",
-  whatsapp: "923286704501",
+  phone: "+923042774444",
+  phoneDisplay: "0304 2774444",
+  whatsapp: "923042774444",
   hours: "Open 24 Hours, 7 Days a Week",
   googleMapsUrl: "https://maps.google.com/?q=Raiwind+Lahore",
   embedMapUrl:
@@ -247,12 +247,12 @@ export const psoStation: StationData = {
   gallery: [
     {
       src: "/images/pso/pso-night-full.jpg",
-      alt: "Mashal PSO Station night view with illuminated canopy, crescent on roof, digital fuel dispensers, and Shop Stop in Raiwind, Lahore",
-      caption: "Mashal PSO flagship forecourt at night with illuminated canopy, Shop Stop, and digital dispensers in Raiwind, Lahore.",
+      alt: "Mashaal PSO Station night view with illuminated canopy, crescent on roof, digital fuel dispensers, and Shop Stop in Raiwind, Lahore",
+      caption: "Mashaal PSO flagship forecourt at night with illuminated canopy, Shop Stop, and digital dispensers in Raiwind, Lahore.",
     },
     {
       src: "/images/pso/pso-day-forecourt.jpg",
-      alt: "Daytime perspective of Mashal PSO forecourt showing fuel dispenser islands, totem sign, and vehicle parking",
+      alt: "Daytime perspective of Mashaal PSO forecourt showing fuel dispenser islands, totem sign, and vehicle parking",
       caption: "Daytime view of multi-lane fuel islands, totem signage, and transit parking.",
     },
   ],

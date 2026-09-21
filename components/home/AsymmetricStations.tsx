@@ -46,7 +46,7 @@ export const AsymmetricStations: React.FC = () => {
                 <div>
                   <ParcoBadge />
                   <h3 className="font-serif text-xl sm:text-2xl font-normal text-[#15120D] mt-1.5">
-                    Mashal Total PARCO Station
+                    Mashaal Total PARCO Station
                   </h3>
                 </div>
                 <span className="text-[11px] bg-[#FAECEC] text-parco-red px-2.5 py-1 rounded-full font-semibold">
@@ -58,7 +58,7 @@ export const AsymmetricStations: React.FC = () => {
               <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden bg-neutral-900 border border-neutral-200/80 group">
                 <Image
                   src="/images/parco/parco-hero-night.jpg"
-                  alt="Mashal Total PARCO station at night with illuminated red canopy in Rahim Yar Khan"
+                    alt="Mashaal Total PARCO station at night with illuminated red canopy in Rahim Yar Khan"
                   fill
                   sizes="(max-width: 768px) 100vw, 45vw"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
@@ -142,7 +142,7 @@ export const AsymmetricStations: React.FC = () => {
                 <div>
                   <PsoBadge />
                   <h3 className="font-serif text-xl sm:text-2xl font-normal text-[#15120D] mt-1.5">
-                    Mashal PSO Station
+                    Mashaal PSO Station
                   </h3>
                 </div>
                 <span className="text-[11px] bg-[#E8F3ED] text-pso-green px-2.5 py-1 rounded-full font-semibold">
@@ -154,7 +154,7 @@ export const AsymmetricStations: React.FC = () => {
               <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden bg-neutral-900 border border-neutral-200/80 group">
                 <Image
                   src="/images/pso/pso-landing-station.jpg"
-                  alt="Mashal PSO station at night with illuminated canopy and Shop Stop in Raiwind Lahore"
+                  alt="Mashaal PSO station at night with illuminated canopy and Shop Stop in Raiwind Lahore"
                   fill
                   sizes="(max-width: 768px) 100vw, 45vw"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700"

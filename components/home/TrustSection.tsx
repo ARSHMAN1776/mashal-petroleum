@@ -65,7 +65,7 @@ export const TrustSection: React.FC = () => {
           <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-[44px] text-[#0A111F] font-normal tracking-tight leading-[1.14]">
             Why drivers and commercial fleets rely on{" "}
             <span className="text-[#C89A3C] block sm:inline">
-              Mashal Petroleum.
+              Mashaal Petroleum.
             </span>
           </h2>
 

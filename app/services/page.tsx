@@ -55,7 +55,7 @@ export default function ServicesPage() {
             <div className="h-[1.5px] w-8 sm:w-14 bg-gradient-to-r from-transparent via-[#C89A3C] to-[#C89A3C]" />
             <div className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.25em] text-[#8C7238]">
               <FlameIcon size={14} className="text-[#C89A3C] flex-shrink-0" />
-              <span>MASHAL PETROLEUM &bull; PROVISIONS</span>
+              <span>MASHAAL PETROLEUM &bull; PROVISIONS</span>
             </div>
             <div className="h-[1.5px] w-8 sm:w-14 bg-gradient-to-l from-transparent via-[#C89A3C] to-[#C89A3C]" />
           </motion.div>
@@ -124,7 +124,7 @@ export default function ServicesPage() {
               </h2>
 
               <p className="text-xs sm:text-sm md:text-[15px] text-[#525B6A] leading-relaxed">
-                Every drop of fuel at Mashal Petroleum is sourced straight from official state-authorized PARCO and PSO terminals under strict physical tamper seals. We do not blend, dilute, or purchase secondary wholesale stock.
+                Every drop of fuel at Mashaal Petroleum is sourced straight from official state-authorized PARCO and PSO terminals under strict physical tamper seals. We do not blend, dilute, or purchase secondary wholesale stock.
               </p>
 
               {/* Specific Fuel Grades Strip */}
@@ -192,7 +192,7 @@ export default function ServicesPage() {
               <div className="relative aspect-[4/3] w-full rounded-[22px] overflow-hidden shadow-2xl border border-neutral-200/80 group">
                 <Image
                   src="/images/parco/parco-day-fueling.jpg"
-                  alt="Active fuel dispensing at Mashal Total PARCO station on Khanpur Road"
+                  alt="Active fuel dispensing at Mashaal Total PARCO station on Khanpur Road"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700 select-none"
@@ -236,7 +236,7 @@ export default function ServicesPage() {
               <div className="relative aspect-[4/3] w-full rounded-[22px] overflow-hidden shadow-2xl border border-neutral-200/80 group">
                 <Image
                   src="/images/parco/parco-mart.jpg"
-                  alt="Mashal Petroleum Welcome 24/7 convenience mart with cold drinks, snacks, and travel goods"
+                  alt="Mashaal Petroleum Welcome 24/7 convenience mart with cold drinks, snacks, and travel goods"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700 select-none"
@@ -402,7 +402,7 @@ export default function ServicesPage() {
               <div className="relative aspect-[4/3] w-full rounded-[22px] overflow-hidden shadow-2xl border border-neutral-200/80 group">
                 <Image
                   src="/images/pso/pso-hero-night.jpg"
-                  alt="Illuminated forecourt care and vehicle service area at Mashal PSO Raiwind"
+                  alt="Illuminated forecourt care and vehicle service area at Mashaal PSO Raiwind"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700 select-none"
@@ -440,7 +440,7 @@ export default function ServicesPage() {
               <div className="relative aspect-[4/3] w-full rounded-[22px] overflow-hidden shadow-2xl border border-neutral-200/80 group">
                 <Image
                   src="/images/parco/parco-carwash.jpg"
-                  alt="Automated car wash facility and QUARTZ service bay at Mashal Total PARCO Rahim Yar Khan"
+                  alt="Automated car wash facility and QUARTZ service bay at Mashaal Total PARCO Rahim Yar Khan"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700 select-none"
@@ -594,7 +594,7 @@ export default function ServicesPage() {
               <div className="relative aspect-[4/3] w-full rounded-[22px] overflow-hidden shadow-2xl border border-neutral-200/80 group">
                 <Image
                   src="/images/pso/pso-day-forecourt.jpg"
-                  alt="High-clearance commercial forecourt at Mashal PSO Station Raiwind"
+                  alt="High-clearance commercial forecourt at Mashaal PSO Station Raiwind"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover object-center group-hover:scale-105 transition-transform duration-700 select-none"
@@ -623,7 +623,7 @@ export default function ServicesPage() {
           <h2 className="font-serif text-2xl sm:text-4xl text-[#15120D] font-normal tracking-tight max-w-2xl mx-auto">
             Experience the standard of{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#9E7324] via-[#C89A3C] to-[#8C7238]">
-              Mashal Petroleum.
+              Mashaal Petroleum.
             </span>
           </h2>
           <p className="text-xs sm:text-sm md:text-base text-[#524C42] max-w-xl mx-auto leading-relaxed">

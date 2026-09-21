@@ -21,15 +21,15 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Mashal Petroleum",
-    default: "Mashal Petroleum — Total PARCO & PSO Fuel Stations",
+    template: "%s | Mashaal Petroleum",
+    default: "Mashaal Petroleum — Total PARCO & PSO Fuel Stations",
   },
   description:
-    "Mashal Petroleum operates two premier forecourts in Punjab, Pakistan: an authorized Total PARCO station on Khanpur Road, District Rahim Yar Khan and an official PSO station in Raiwind, Lahore. Certified fuel calibration, 24/7 service, and clean travel facilities.",
+    "Mashaal Petroleum operates two premier forecourts in Punjab, Pakistan: an authorized Total PARCO station on Khanpur Road, District Rahim Yar Khan and an official PSO station in Raiwind, Lahore. Certified fuel calibration, 24/7 service, and clean travel facilities.",
   keywords: [
     "No 1 petrol in Rahim Yar Khan",
     "No 1 petrol pump Rahim Yar Khan",
-    "Mashal Petroleum",
+    "Mashaal Petroleum",
     "Total PARCO Rahim Yar Khan",
     "PSO Raiwind Lahore",
     "Khanpur Road petrol pump",
@@ -38,14 +38,14 @@ export const metadata: Metadata = {
     "Hi-Octane Rahim Yar Khan",
     "Hi-Octane Lahore",
   ],
-  authors: [{ name: "Mashal Petroleum" }],
+  authors: [{ name: "Mashaal Petroleum" }],
   metadataBase: new URL("https://mashalpetroleum.pk"),
   openGraph: {
-    title: "Mashal Petroleum — Total PARCO & PSO Fuel Stations",
+    title: "Mashaal Petroleum — Total PARCO & PSO Fuel Stations",
     description:
       "Two fuel stations, one standard of integrity. Operating certified Total PARCO (Rahim Yar Khan) and PSO (Raiwind, Lahore) forecourts.",
     url: "https://mashalpetroleum.pk",
-    siteName: "Mashal Petroleum",
+    siteName: "Mashaal Petroleum",
     locale: "en_PK",
     type: "website",
   },

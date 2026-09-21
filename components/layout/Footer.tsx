@@ -15,13 +15,13 @@ export const Footer: React.FC = () => {
             <Link
               href="/"
               className="inline-flex items-center gap-2.5 group focus:outline-none"
-              aria-label="Mashal Petroleum Home"
+              aria-label="Mashaal Petroleum Home"
             >
               <div className="w-8 h-8 rounded-full bg-[#FAF6EE] border border-[#E6DEC8] flex items-center justify-center text-[#C89A3C] group-hover:scale-105 transition-transform shadow-[0_0_10px_rgba(200,154,60,0.15)]">
                 <FlameIcon size={16} />
               </div>
               <span className="font-serif text-xl tracking-tight text-[#15120D] group-hover:text-[#C89A3C] transition-colors">
-                Mashal Petroleum
+                Mashaal Petroleum
               </span>
             </Link>
 
@@ -143,7 +143,7 @@ export const Footer: React.FC = () => {
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#7A7265] text-center md:text-left">
           {/* Copyright */}
           <p className="order-2 md:order-1">
-            &copy; {new Date().getFullYear()} Mashal Petroleum. All rights reserved. Punjab, Pakistan.
+            &copy; {new Date().getFullYear()} Mashaal Petroleum. All rights reserved. Punjab, Pakistan.
           </p>
 
           {/* Dealer Attribution */}

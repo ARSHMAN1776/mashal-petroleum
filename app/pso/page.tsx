@@ -26,7 +26,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "PSO Station Raiwind | Lahore | Mashal Petroleum",
+  title: "PSO Station Raiwind | Lahore | Mashaal Petroleum",
   description:
     "Official Pakistan State Oil (PSO) forecourt on Raiwind Road, Raiwind, Lahore. Offering Altron Premium Euro 5, Altron X High Octane 97, Action+ Diesel, Shop Stop, 24/7 ATM, and PSO Fleet Card facilities.",
 };
@@ -86,7 +86,7 @@ export default function PsoPage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/pso/pso-hero-landscape.jpg"
-            alt="Mashal PSO Station illuminated canopy, dispensers, and Shop Stop in Raiwind, Lahore"
+            alt="Mashaal PSO Station illuminated canopy, dispensers, and Shop Stop in Raiwind, Lahore"
             fill
             priority
             unoptimized
@@ -119,7 +119,7 @@ export default function PsoPage() {
                   Raiwind Road &bull; Lahore
                 </p>
                 <h1 className="font-serif text-3xl sm:text-5xl lg:text-[54px] xl:text-[60px] leading-[1.08] tracking-tight font-normal text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.8)]">
-                  Mashal PSO <span className="italic font-light text-emerald-300">Station</span>
+                  Mashaal PSO <span className="italic font-light text-emerald-300">Station</span>
                 </h1>
               </div>
 
@@ -466,7 +466,7 @@ export default function PsoPage() {
                     <span>Location &amp; Coordinates</span>
                   </div>
                   <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#15120D]">
-                    Mashal PSO Station
+                    Mashaal PSO Station
                   </h3>
                   <p className="text-xs text-[#5A7365] mt-1">
                     Raiwind Road Corridor &bull; Lahore

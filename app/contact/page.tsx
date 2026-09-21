@@ -30,7 +30,7 @@ const contactFaqs = [
   },
   {
     q: "How can commercial logistics fleets or agricultural operations arrange bulk diesel supply?",
-    a: "We provide dedicated commercial high-flow diesel dispensing, scheduled night filling windows, and account-based fueling for fleet operators and agricultural machinery. Contact our central management desk directly at 0328 6704501 or via WhatsApp to discuss volume terms and priority dispatch.",
+    a: "We provide dedicated commercial high-flow diesel dispensing, scheduled night filling windows, and account-based fueling for fleet operators and agricultural machinery. Contact our central management desk directly at 0304 2774444 or via WhatsApp to discuss volume terms and priority dispatch.",
   },
   {
     q: "Are the convenience marts, prayer areas, and washrooms open 24/7?",
@@ -76,7 +76,7 @@ export default function ContactPage() {
           >
             Connect with{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#9E7324] via-[#C89A3C] to-[#8C7238]">
-              Mashal Petroleum.
+              Mashaal Petroleum.
             </span>
           </motion.h1>
 
@@ -106,7 +106,7 @@ export default function ContactPage() {
             </a>
 
             <a
-              href={`https://wa.me/${parcoStation.whatsapp}?text=Hello%20Mashal%20Petroleum,%20I%20have%20an%20inquiry%20regarding%20Total%20PARCO%20Station%20(Khanpur%20Road,%20Rahim%20Yar%20Khan)`}
+              href={`https://wa.me/${parcoStation.whatsapp}?text=Hello%20Mashaal%20Petroleum,%20I%20have%20an%20inquiry%20regarding%20Total%20PARCO%20Station%20(Khanpur%20Road,%20Rahim%20Yar%20Khan)`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 bg-white hover:bg-neutral-50 border border-neutral-200/90 text-[#15120D] px-3.5 py-2.5 rounded-full transition-all shadow-xs active:scale-95"
@@ -116,7 +116,7 @@ export default function ContactPage() {
             </a>
 
             <a
-              href={`https://wa.me/${psoStation.whatsapp}?text=Hello%20Mashal%20Petroleum,%20I%20have%20an%20inquiry%20regarding%20PSO%20Station%20(Raiwind,%20Lahore)`}
+              href={`https://wa.me/${psoStation.whatsapp}?text=Hello%20Mashaal%20Petroleum,%20I%20have%20an%20inquiry%20regarding%20PSO%20Station%20(Raiwind,%20Lahore)`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 bg-white hover:bg-neutral-50 border border-neutral-200/90 text-[#15120D] px-3.5 py-2.5 rounded-full transition-all shadow-xs active:scale-95"
@@ -188,7 +188,7 @@ export default function ContactPage() {
                 <span>Map Route</span>
               </a>
               <a
-                href={`https://wa.me/${parcoStation.whatsapp}?text=Hello%20Mashal%20Total%20PARCO%20Rahim%20Yar%20Khan`}
+                href={`https://wa.me/${parcoStation.whatsapp}?text=Hello%20Mashaal%20Total%20PARCO%20Rahim%20Yar%20Khan`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-white bg-parco-red hover:bg-parco-dark p-2.5 rounded-xl transition-all shadow-sm"
@@ -354,7 +354,7 @@ export default function ContactPage() {
                     <div>
                       <ParcoBadge />
                       <h3 className="font-serif text-xl sm:text-2xl font-normal text-[#15120D] mt-1.5">
-                        Mashal Total PARCO Station
+                        Mashaal Total PARCO Station
                       </h3>
                     </div>
                     <span className="text-[11px] bg-[#FAECEC] text-parco-red px-2.5 py-1 rounded-full font-semibold">
@@ -366,7 +366,7 @@ export default function ContactPage() {
                   <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden bg-neutral-900 border border-neutral-200/80 group">
                     <Image
                       src="/images/parco/parco-hero-night.jpg"
-                      alt="Mashal Total PARCO station at night in Rahim Yar Khan"
+                      alt="Mashaal Total PARCO station at night in Rahim Yar Khan"
                       fill
                       sizes="(max-width: 768px) 100vw, 40vw"
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
@@ -393,7 +393,7 @@ export default function ContactPage() {
                   </a>
 
                   <a
-                    href={`https://wa.me/${parcoStation.whatsapp}?text=Hello%20Total%20PARCO%20Mashal%20Petroleum`}
+                    href={`https://wa.me/${parcoStation.whatsapp}?text=Hello%20Total%20PARCO%20Mashaal%20Petroleum`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 bg-[#FAECEC] hover:bg-[#F5D8D8] text-parco-red text-xs font-semibold px-4 py-2.5 rounded-full transition-all"
@@ -419,7 +419,7 @@ export default function ContactPage() {
                     <div>
                       <PsoBadge />
                       <h3 className="font-serif text-xl sm:text-2xl font-normal text-[#15120D] mt-1.5">
-                        Mashal PSO Station
+                        Mashaal PSO Station
                       </h3>
                     </div>
                     <span className="text-[11px] bg-[#E8F3ED] text-pso-green px-2.5 py-1 rounded-full font-semibold">
@@ -431,7 +431,7 @@ export default function ContactPage() {
                   <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden bg-neutral-900 border border-neutral-200/80 group">
                     <Image
                       src="/images/pso/pso-landing-station.jpg"
-                      alt="Mashal PSO station at night in Raiwind Lahore"
+                      alt="Mashaal PSO station at night in Raiwind Lahore"
                       fill
                       sizes="(max-width: 768px) 100vw, 40vw"
                       className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
@@ -458,7 +458,7 @@ export default function ContactPage() {
                   </a>
 
                   <a
-                    href={`https://wa.me/${psoStation.whatsapp}?text=Hello%20PSO%20Mashal%20Petroleum`}
+                    href={`https://wa.me/${psoStation.whatsapp}?text=Hello%20PSO%20Mashaal%20Petroleum`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 bg-[#E8F3ED] hover:bg-[#D5EBDD] text-pso-green text-xs font-semibold px-4 py-2.5 rounded-full transition-all"

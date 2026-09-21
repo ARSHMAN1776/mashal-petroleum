@@ -103,7 +103,7 @@ export const AnimatedPumpDispenser: React.FC = () => {
                 Digital Calibrated Dispenser
               </span>
               <span className="text-[9px] text-[#7A7265] block -mt-0.5">
-                Mashal Forecourt Telemetry &bull; Unit 02
+                Mashaal Forecourt Telemetry &bull; Unit 02
               </span>
             </div>
           </div>
