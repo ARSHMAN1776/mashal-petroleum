@@ -3,138 +3,182 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { AnimatePresence, motion } from "framer-motion";
 import { FlameIcon } from "@/components/ui/FlameIcon";
-import { Menu, X } from "lucide-react";
+import { LuxButton } from "@/components/ui/LuxButton";
 import { cn } from "@/lib/utils";
-import { mashalInfo } from "@/lib/station-data";
+
+const navLinks = [
+  { name: "Home", href: "/" },
+  { name: "PARCO Station", href: "/parco" },
+  { name: "PSO Station", href: "/pso" },
+  { name: "Services", href: "/services" },
+  { name: "Contact", href: "/contact" },
+];
+
+const EASE = [0.32, 0.72, 0, 1] as const;
 
 export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setIsScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "PARCO Station", href: "/parco" },
-    { name: "PSO Station", href: "/pso" },
-    { name: "Services", href: "/services" },
-    { name: "Contact", href: "/contact" },
-  ];
+  // Close the menu whenever the route changes.
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
+  // Lock page scroll and allow Escape while the menu is open.
+  useEffect(() => {
+    if (!menuOpen) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = previous;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [menuOpen]);
 
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-[#EAE5D9] text-[#15120D] py-2.5 sm:py-3",
-        isScrolled && "shadow-[0_4px_25px_rgba(200,154,60,0.08)] bg-white/98 py-2 sm:py-2.5"
+        "sticky top-0 z-50 border-b bg-mashal-bone/90 backdrop-blur-xl transition-[border-color] duration-500",
+        isScrolled || menuOpen ? "border-mashal-line" : "border-transparent"
       )}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand Wordmark & Flame */}
+      <div className="mx-auto flex h-[76px] max-w-[1320px] items-center justify-between px-6 lg:px-10">
+        {/* Wordmark */}
         <Link
           href="/"
-          className="flex items-center gap-2 sm:gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C89A3C] rounded"
-          aria-label="Mashaal Petroleum Home"
+          aria-label="Mashaal Petroleum home"
+          className="group flex items-center gap-3 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mashal-gold"
         >
-          <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#FAF6EE] border border-[#E6DEC8] flex items-center justify-center text-[#C89A3C] group-hover:scale-105 transition-transform shadow-[0_0_10px_rgba(200,154,60,0.15)]">
-            <FlameIcon size={16} />
-          </div>
-          <span className="font-serif text-base sm:text-lg tracking-tight font-normal text-[#15120D] group-hover:text-[#C89A3C] transition-colors">
+          <FlameIcon size={22} className="text-mashal-gold transition-transform duration-500 group-hover:-translate-y-0.5" />
+          <span className="font-display text-[21px] font-normal tracking-[-0.01em] text-mashal-charcoal">
             Mashaal Petroleum
           </span>
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-5 lg:gap-7" aria-label="Main Navigation">
+        {/* Desktop navigation */}
+        <nav className="hidden items-center gap-9 md:flex" aria-label="Main navigation">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link
                 key={link.href}
                 href={link.href}
+                aria-current={isActive ? "page" : undefined}
                 className={cn(
-                  "text-xs lg:text-[13px] font-medium transition-colors relative py-1",
+                  "relative py-2 text-[13px] tracking-[0.02em] transition-colors duration-500",
+                  "after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-left after:bg-mashal-gold after:transition-transform after:duration-500 after:ease-[cubic-bezier(0.32,0.72,0,1)]",
                   isActive
-                    ? "text-[#C89A3C] font-semibold"
-                    : "text-[#5A5245] hover:text-[#15120D]"
+                    ? "font-medium text-mashal-charcoal after:scale-x-100"
+                    : "text-mashal-ink-soft after:scale-x-0 hover:text-mashal-charcoal hover:after:scale-x-100"
                 )}
               >
                 {link.name}
-                {isActive && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-[1.5px] bg-[#C89A3C] rounded-full shadow-[0_0_6px_rgba(200,154,60,0.4)]" />
-                )}
               </Link>
             );
           })}
         </nav>
 
-        {/* Action Button */}
-        <div className="hidden lg:flex items-center gap-2.5">
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold bg-[#C89A3C] hover:bg-[#B68B34] text-white px-4 py-2 rounded-full transition-all shadow-[0_2px_12px_rgba(200,154,60,0.25)] hover:shadow-[0_4px_16px_rgba(200,154,60,0.35)] active:scale-95"
-          >
-            <span>Direct Inquiries</span>
-            <span className="text-xs leading-none font-bold">&rarr;</span>
-          </Link>
+        <div className="hidden lg:block">
+          <LuxButton href="/contact" variant="outline" size="sm">
+            Direct inquiries
+          </LuxButton>
         </div>
 
-        {/* Mobile menu button */}
-        <div className="flex md:hidden items-center gap-2">
-          <button
-            type="button"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="text-[#15120D] p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#C89A3C]"
-            aria-expanded={mobileMenuOpen}
-            aria-label="Toggle navigation menu"
-          >
-            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
-        </div>
+        {/* Mobile toggle: two hairlines that morph into a cross */}
+        <button
+          type="button"
+          onClick={() => setMenuOpen((open) => !open)}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          className="relative -mr-2 flex h-11 w-11 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mashal-gold md:hidden"
+        >
+          <span
+            className={cn(
+              "absolute h-px w-6 bg-mashal-charcoal transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]",
+              menuOpen ? "rotate-45" : "-translate-y-[4px]"
+            )}
+          />
+          <span
+            className={cn(
+              "absolute h-px w-6 bg-mashal-charcoal transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]",
+              menuOpen ? "-rotate-45" : "translate-y-[4px]"
+            )}
+          />
+        </button>
       </div>
 
-      {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="md:hidden border-t border-[#EAE5D9] bg-white px-4 pt-3 pb-6 space-y-3 animate-in fade-in slide-in-from-top-2 duration-200 shadow-xl">
-          <div className="space-y-1">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={cn(
-                    "block px-3 py-2.5 rounded text-sm font-medium transition-colors",
-                    isActive
-                      ? "text-[#C89A3C] bg-[#FAF6EE] font-semibold"
-                      : "text-[#5A5245] hover:bg-[#FAF8F5] hover:text-[#15120D]"
-                  )}
-                >
-                  {link.name}
-                </Link>
-              );
-            })}
-          </div>
+      {/* Mobile menu: full-screen sheet, links rise in one after another */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            id="mobile-menu"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.35, ease: EASE }}
+            className="absolute inset-x-0 top-full flex h-[calc(100dvh-76px)] flex-col justify-between bg-mashal-bone px-6 pb-10 pt-8 md:hidden"
+          >
+            <nav aria-label="Mobile navigation" className="flex flex-col">
+              {navLinks.map((link, i) => {
+                const isActive = pathname === link.href;
+                return (
+                  <div key={link.href} className="overflow-hidden border-b border-mashal-line">
+                    <motion.div
+                      initial={{ y: "110%" }}
+                      animate={{ y: 0 }}
+                      transition={{ duration: 0.7, delay: 0.08 + i * 0.06, ease: EASE }}
+                    >
+                      <Link
+                        href={link.href}
+                        aria-current={isActive ? "page" : undefined}
+                        className="flex items-baseline justify-between py-5"
+                      >
+                        <span
+                          className={cn(
+                            "font-display text-[34px] font-normal leading-none tracking-[-0.01em]",
+                            isActive ? "text-mashal-gold-deep" : "text-mashal-charcoal"
+                          )}
+                        >
+                          {link.name}
+                        </span>
+                        <span className="text-[12px] tabular-nums tracking-[0.2em] text-mashal-gold-muted">
+                          0{i + 1}
+                        </span>
+                      </Link>
+                    </motion.div>
+                  </div>
+                );
+              })}
+            </nav>
 
-          <div className="pt-3 border-t border-[#EAE5D9] flex flex-col gap-2.5">
-            <Link
-              href="/contact"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block text-center text-sm font-semibold bg-[#C89A3C] text-white py-2.5 rounded-full shadow-md"
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.5, ease: EASE }}
             >
-              Direct Inquiries &rarr;
-            </Link>
-          </div>
-        </div>
-      )}
+              <LuxButton href="/contact" variant="dark">
+                Direct inquiries
+              </LuxButton>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

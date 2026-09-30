@@ -12,6 +12,16 @@ const fraunces = Fraunces({
   display: "swap",
 });
 
+// Optical-size + italic cut of Fraunces for large editorial headlines.
+// `font-serif` keeps the original static cut so existing components are unchanged.
+const display = Fraunces({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  axes: ["opsz"],
+  variable: "--font-display",
+  display: "swap",
+});
+
 const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500"],
@@ -57,11 +67,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
+    <html lang="en" className={`${fraunces.variable} ${display.variable} ${inter.variable}`}>
       <body className="min-h-screen flex flex-col antialiased selection:bg-mashal-gold selection:text-white bg-white text-[#15120D]">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[110] focus:rounded-full focus:bg-mashal-charcoal focus:px-5 focus:py-2.5 focus:text-sm focus:text-white"
+        >
+          Skip to content
+        </a>
         <AnimatedScrollBar />
         <Navbar />
-        <main className="flex-grow">{children}</main>
+        <main id="main" className="flex-grow">{children}</main>
         <Footer />
       </body>
     </html>

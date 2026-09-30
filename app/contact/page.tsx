@@ -3,25 +3,14 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { MessageSquare, Navigation, Plus } from "lucide-react";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { parcoStation, psoStation, mashalInfo } from "@/lib/station-data";
-import {
-  MapPin,
-  Phone,
-  Clock,
-  MessageSquare,
-  Navigation,
-  Mail,
-  Building2,
-  ShieldCheck,
-  Fuel,
-  ChevronDown,
-  Sparkles,
-  ArrowUpRight,
-  ExternalLink,
-} from "lucide-react";
-import { FlameIcon } from "@/components/ui/FlameIcon";
 import { ParcoBadge, PsoBadge } from "@/components/ui/BrandBadges";
+import { Eyebrow } from "@/components/ui/Eyebrow";
+import { LuxButton } from "@/components/ui/LuxButton";
+import { TextLink } from "@/components/ui/TextLink";
+import { Reveal } from "@/components/ui/Reveal";
 
 const contactFaqs = [
   {
@@ -42,302 +31,243 @@ const contactFaqs = [
   },
 ];
 
+const EASE = [0.32, 0.72, 0, 1] as const;
+
 export default function ContactPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <div className="bg-[#FAF8F5] text-[#0A111F] min-h-screen selection:bg-[#C89A3C] selection:text-white">
-      {/* 1. Cinematic Luxury Hero Header */}
-      <section className="relative bg-[#FAF9F6] text-[#15120D] py-16 sm:py-24 lg:py-28 overflow-hidden border-b border-[#EAE5D9]">
-        {/* Subtle Ambient Radial Lighting */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[350px] bg-gradient-to-b from-[#C89A3C]/10 via-[#F4EFE4]/40 to-transparent blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[300px] bg-gradient-to-tl from-emerald-500/5 via-transparent to-transparent blur-3xl pointer-events-none" />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4 sm:space-y-6">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="flex items-center justify-center gap-3"
-          >
-            <div className="h-[1.5px] w-8 sm:w-14 bg-gradient-to-r from-transparent via-[#C89A3C] to-[#C89A3C]" />
-            <div className="inline-flex items-center gap-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.25em] text-[#8C7238]">
-              <FlameIcon size={14} className="text-[#C89A3C] flex-shrink-0" />
-              <span>DIRECT FORECOURT &bull; CORPORATE ACCESS</span>
-            </div>
-            <div className="h-[1.5px] w-8 sm:w-14 bg-gradient-to-l from-transparent via-[#C89A3C] to-[#C89A3C]" />
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-serif text-3xl sm:text-5xl lg:text-6xl text-[#15120D] font-normal tracking-tight max-w-3xl mx-auto leading-[1.12]"
-          >
-            Connect with{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#9E7324] via-[#C89A3C] to-[#8C7238]">
-              Mashaal Petroleum.
-            </span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-xs sm:text-sm md:text-base text-[#524C42] max-w-2xl mx-auto leading-relaxed font-normal"
-          >
-            Direct contact with our forecourt supervisors, station managers, and corporate desk across Punjab. Call us 24/7 at{" "}
-            <strong className="text-[#15120D] font-semibold tabular-nums">{mashalInfo.centralPhoneDisplay}</strong> or message us via WhatsApp.
-          </motion.p>
-
-          {/* Quick Action Navigation Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="pt-3 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5 text-xs font-medium"
-          >
-            <a
-              href={`tel:${mashalInfo.centralPhone}`}
-              className="inline-flex items-center gap-2 bg-[#C89A3C] hover:bg-[#B68B34] text-white font-semibold px-4 py-2.5 rounded-full transition-all shadow-[0_2px_12px_rgba(200,154,60,0.25)] active:scale-95"
-            >
-              <Phone size={13} className="text-white" />
-              <span className="tabular-nums">Call 24/7 ({mashalInfo.centralPhoneDisplay})</span>
-            </a>
-
-            <a
+    <div className="bg-mashal-bone text-mashal-charcoal selection:bg-mashal-gold selection:text-white">
+      {/* 1. Hero */}
+      <section className="relative overflow-hidden">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -right-48 -top-56 h-[680px] w-[680px] rounded-full bg-[radial-gradient(closest-side,rgba(200,154,60,0.14),transparent)]"
+        />
+        <div className="relative mx-auto max-w-[1320px] px-6 pb-16 pt-14 lg:px-10 lg:pb-24 lg:pt-20">
+          <Reveal>
+            <Eyebrow>Direct forecourt &middot; Corporate access</Eyebrow>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <h1 className="mt-9 max-w-[14ch] text-balance font-display text-[clamp(2.4rem,4.6vw,3.75rem)] font-normal leading-[1.15] tracking-[-0.015em] sm:max-w-[16ch]">
+              Connect with{" "}
+              <span className="text-mashal-gold-deep">Mashaal Petroleum.</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={0.16}>
+            <p className="mt-9 max-w-[36rem] text-[17px] leading-[1.8] text-mashal-ink-soft">
+              Direct contact with our forecourt supervisors, station managers, and corporate desk
+              across Punjab. Call us 24/7 at{" "}
+              <strong className="font-medium tabular-nums text-mashal-charcoal">
+                {mashalInfo.centralPhoneDisplay}
+              </strong>{" "}
+              or message us via WhatsApp.
+            </p>
+          </Reveal>
+          <Reveal delay={0.24} className="mt-11 flex flex-wrap items-center gap-x-9 gap-y-6">
+            <LuxButton href={`tel:${mashalInfo.centralPhone}`} variant="dark">
+              <span className="tabular-nums">Call 24/7 &middot; {mashalInfo.centralPhoneDisplay}</span>
+            </LuxButton>
+            <TextLink
               href={`https://wa.me/${parcoStation.whatsapp}?text=Hello%20Mashaal%20Petroleum,%20I%20have%20an%20inquiry%20regarding%20Total%20PARCO%20Station%20(Khanpur%20Road,%20Rahim%20Yar%20Khan)`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-white hover:bg-neutral-50 border border-neutral-200/90 text-[#15120D] px-3.5 py-2.5 rounded-full transition-all shadow-xs active:scale-95"
             >
-              <MessageSquare size={13} className="text-parco-red" />
-              <span>WhatsApp PARCO (RYK)</span>
-            </a>
-
-            <a
+              WhatsApp PARCO (RYK)
+            </TextLink>
+            <TextLink
               href={`https://wa.me/${psoStation.whatsapp}?text=Hello%20Mashaal%20Petroleum,%20I%20have%20an%20inquiry%20regarding%20PSO%20Station%20(Raiwind,%20Lahore)`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-white hover:bg-neutral-50 border border-neutral-200/90 text-[#15120D] px-3.5 py-2.5 rounded-full transition-all shadow-xs active:scale-95"
             >
-              <MessageSquare size={13} className="text-pso-green" />
-              <span>WhatsApp PSO (Lahore)</span>
-            </a>
-          </motion.div>
+              WhatsApp PSO (Lahore)
+            </TextLink>
+          </Reveal>
         </div>
       </section>
 
-      {/* 2. Three Quick-Access Channel Cards */}
-      <section className="relative -mt-8 sm:-mt-10 z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
-          {/* Channel 1: 24/7 Central Hotline */}
-          <div className="bg-white border border-neutral-200/90 rounded-[20px] p-5 sm:p-6 shadow-[0_8px_30px_rgba(0,0,0,0.04)] flex flex-col justify-between space-y-4 hover:border-[#C89A3C]/80 transition-all">
-            <div className="space-y-2">
-              <div className="flex items-center justify-between">
-                <div className="w-10 h-10 rounded-full bg-[#FAF8F5] border border-neutral-200 flex items-center justify-center text-[#8C7238]">
-                  <Phone size={18} />
-                </div>
-                <span className="inline-flex items-center gap-1 text-[10px] font-semibold uppercase px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  Live 24/7
-                </span>
-              </div>
-              <h3 className="font-serif text-lg font-normal text-[#0A111F]">
-                Central Helpdesk & Inquiries
-              </h3>
-              <p className="text-xs text-[#5A6474] leading-relaxed">
-                Direct verbal assistance for fuel stock, current rates, bulk transport, or managerial escalation.
-              </p>
-            </div>
-            <a
-              href={`tel:${mashalInfo.centralPhone}`}
-              className="inline-flex items-center justify-between text-xs font-semibold text-[#0A111F] bg-[#FAF8F5] hover:bg-[#F3EEDF] p-3 rounded-xl border border-neutral-200/80 transition-all"
-            >
-              <span className="tabular-nums font-bold text-sm">{mashalInfo.centralPhoneDisplay}</span>
-              <span className="text-[#8C7238] flex items-center gap-1 text-[11px]">
-                Call Line <ArrowUpRight size={13} />
-              </span>
-            </a>
-          </div>
-
-          {/* Channel 2: Total PARCO (RYK) Desk */}
-          <div className="bg-white border border-parco-border/90 rounded-[20px] p-5 sm:p-6 shadow-[0_8px_30px_rgba(0,0,0,0.04)] flex flex-col justify-between space-y-4 hover:border-parco-red/50 transition-all">
-            <div className="space-y-2">
-              <div className="flex items-center justify-between">
-                <div className="w-10 h-10 rounded-full bg-red-50 border border-red-200 flex items-center justify-center text-parco-red">
-                  <Fuel size={18} />
-                </div>
-                <ParcoBadge />
-              </div>
-              <h3 className="font-serif text-lg font-normal text-[#0A111F]">
-                Total PARCO (Rahim Yar Khan)
-              </h3>
-              <p className="text-xs text-[#5A6474] leading-relaxed">
-                Khanpur Road forecourt desk, M-Mart convenience, Excellium dispensers, and automatic car wash.
-              </p>
-            </div>
-            <div className="flex gap-2">
-              <a
-                href={parcoStation.googleMapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-[#0A111F] bg-[#FAF8F5] hover:bg-neutral-100 p-2.5 rounded-xl border border-neutral-200/80 transition-all"
-              >
-                <Navigation size={12} className="text-parco-red" />
-                <span>Map Route</span>
-              </a>
-              <a
-                href={`https://wa.me/${parcoStation.whatsapp}?text=Hello%20Mashaal%20Total%20PARCO%20Rahim%20Yar%20Khan`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-white bg-parco-red hover:bg-parco-dark p-2.5 rounded-xl transition-all shadow-sm"
-              >
-                <MessageSquare size={12} />
-                <span>WhatsApp</span>
-              </a>
-            </div>
-          </div>
-
-          {/* Channel 3: PSO (Lahore) Desk */}
-          <div className="bg-white border border-pso-border/90 rounded-[20px] p-5 sm:p-6 shadow-[0_8px_30px_rgba(0,0,0,0.04)] flex flex-col justify-between space-y-4 hover:border-pso-green/50 transition-all">
-            <div className="space-y-2">
-              <div className="flex items-center justify-between">
-                <div className="w-10 h-10 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center text-pso-green">
-                  <Fuel size={18} />
-                </div>
-                <PsoBadge />
-              </div>
-              <h3 className="font-serif text-lg font-normal text-[#0A111F]">
-                PSO Station (Raiwind Lahore)
-              </h3>
-              <p className="text-xs text-[#5A6474] leading-relaxed">
-                Raiwind Road flagship forecourt, Shop Stop, on-site 24/7 ATM, Altron High Octane & Euro-5 diesel.
-              </p>
-            </div>
-            <div className="flex gap-2">
-              <a
-                href={psoStation.googleMapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-[#0A111F] bg-[#FAF8F5] hover:bg-neutral-100 p-2.5 rounded-xl border border-neutral-200/80 transition-all"
-              >
-                <Navigation size={12} className="text-pso-green" />
-                <span>Map Route</span>
-              </a>
-              <a
-                href={`https://wa.me/${psoStation.whatsapp}?text=Hello%20Mashal%20PSO%20Raiwind%20Lahore`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-white bg-pso-green hover:bg-pso-dark p-2.5 rounded-xl transition-all shadow-sm"
-              >
-                <MessageSquare size={12} />
-                <span>WhatsApp</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Main Contact Form & Direct Support Sidebar */}
-      <section className="py-14 sm:py-20 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-            {/* Left Form Column (7 cols) */}
-            <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.7 }}
-              className="lg:col-span-7"
-            >
-              <ContactForm />
-            </motion.div>
-
-            {/* Right Quick Assistance & Corporate Column (5 cols) */}
-            <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.7, delay: 0.15 }}
-              className="lg:col-span-5 space-y-5"
-            >
-
-
-              {/* Central Office Info Card */}
-              <div className="bg-white border border-neutral-200/90 p-6 sm:p-7 rounded-[22px] space-y-4 shadow-[0_10px_30px_rgba(0,0,0,0.03)]">
-                <div className="flex items-center justify-between pb-2 border-b border-neutral-100">
-                  <h3 className="font-serif text-lg font-normal text-[#0A111F]">
-                    Corporate Headquarters
-                  </h3>
-                  <span className="text-[10px] font-semibold text-[#8C7238] uppercase tracking-wider">
-                    Punjab, Pakistan
+      {/* 2. Three contact desks */}
+      <section className="bg-white">
+        <div className="mx-auto max-w-[1320px] px-6 py-16 lg:px-10 lg:py-24">
+          <div className="grid grid-cols-1 border-t border-mashal-charcoal/20 lg:grid-cols-3">
+            {/* Central helpdesk */}
+            <Reveal>
+              <div className="border-b border-mashal-line py-12 lg:border-b-0 lg:border-r lg:pr-12">
+                <p className="flex items-center gap-3 text-[13px] font-medium uppercase tracking-[0.14em] text-mashal-ink-soft">
+                  <span className="relative flex h-2 w-2" aria-hidden>
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500/60" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-600" />
                   </span>
-                </div>
+                  Live 24/7
+                </p>
+                <h3 className="mt-6 font-display text-[clamp(1.4rem,2vw,1.7rem)] font-normal leading-[1.15] tracking-[-0.01em]">
+                  Central helpdesk &amp; inquiries
+                </h3>
+                <p className="mt-5 max-w-[22rem] text-[15px] leading-7 text-mashal-ink-soft">
+                  Direct verbal assistance for fuel stock, current rates, bulk transport, or
+                  managerial escalation.
+                </p>
+                <a
+                  href={`tel:${mashalInfo.centralPhone}`}
+                  className="mt-8 inline-block font-display text-[clamp(1.5rem,2.2vw,1.9rem)] font-normal tabular-nums tracking-[-0.01em] text-mashal-charcoal transition-colors duration-500 hover:text-mashal-gold-deep"
+                >
+                  {mashalInfo.centralPhoneDisplay}
+                </a>
+              </div>
+            </Reveal>
 
-                <div className="space-y-3 text-xs text-[#5A6474]">
-                  <div className="flex items-start gap-2.5">
-                    <Building2 size={15} className="text-[#8C7238] flex-shrink-0 mt-0.5" />
-                    <span>{mashalInfo.headquarters}</span>
-                  </div>
-                  <div className="flex items-center gap-2.5">
-                    <Phone size={15} className="text-[#8C7238] flex-shrink-0" />
-                    <a
-                      href={`tel:${mashalInfo.centralPhone}`}
-                      className="tabular-nums hover:text-[#0A111F] font-semibold text-[#0A111F]"
-                    >
-                      {mashalInfo.centralPhoneDisplay}
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-2.5">
-                    <Mail size={15} className="text-[#8C7238] flex-shrink-0" />
-                    <a
-                      href={`mailto:${mashalInfo.centralEmail}`}
-                      className="hover:text-[#0A111F]"
-                    >
-                      {mashalInfo.centralEmail}
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-2.5">
-                    <Clock size={15} className="text-[#8C7238] flex-shrink-0" />
-                    <span>Continuous Forecourt Operations &bull; Open 24/7</span>
-                  </div>
+            {/* Total PARCO desk */}
+            <Reveal delay={0.08}>
+              <div className="border-b border-mashal-line py-12 lg:border-b-0 lg:border-r lg:px-12">
+                <p className="flex items-center gap-3 text-[13px] font-medium uppercase tracking-[0.14em] text-mashal-ink-soft">
+                  <span className="h-1.5 w-1.5 rounded-full bg-parco-red" aria-hidden />
+                  PARCO Authorized
+                </p>
+                <h3 className="mt-6 font-display text-[clamp(1.4rem,2vw,1.7rem)] font-normal leading-[1.15] tracking-[-0.01em]">
+                  Total PARCO (Rahim Yar Khan)
+                </h3>
+                <p className="mt-5 max-w-[22rem] text-[15px] leading-7 text-mashal-ink-soft">
+                  Khanpur Road forecourt desk, M-Mart convenience, Excellium dispensers, and
+                  automatic car wash.
+                </p>
+                <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3">
+                  <TextLink href={parcoStation.googleMapsUrl} className="text-parco-red">
+                    Map route
+                  </TextLink>
+                  <TextLink
+                    href={`https://wa.me/${parcoStation.whatsapp}?text=Hello%20Mashaal%20Total%20PARCO%20Rahim%20Yar%20Khan`}
+                  >
+                    WhatsApp
+                  </TextLink>
                 </div>
               </div>
+            </Reveal>
 
-              {/* Quality & Volumetric Calibration Assurance Badge */}
-              <div className="bg-[#FAF8F5] border border-[#C89A3C]/30 p-4 sm:p-5 rounded-[18px] flex items-start gap-3.5 shadow-xs">
-                <div className="w-9 h-9 rounded-full bg-[#FAF6EE] border border-[#E6DEC8] flex items-center justify-center text-[#8C7238] flex-shrink-0 mt-0.5">
-                  <ShieldCheck size={18} />
-                </div>
-                <div className="space-y-0.5">
-                  <p className="text-xs font-semibold text-[#0A111F]">
-                    Certified Physical Volume Verification
-                  </p>
-                  <p className="text-[11px] text-[#5A6474] leading-relaxed">
-                    Test calibration measures (5L / 10L) are accessible upon request before any fueling transaction.
-                  </p>
+            {/* PSO desk */}
+            <Reveal delay={0.16}>
+              <div className="py-12 lg:pl-12">
+                <p className="flex items-center gap-3 text-[13px] font-medium uppercase tracking-[0.14em] text-mashal-ink-soft">
+                  <span className="h-1.5 w-1.5 rounded-full bg-pso-green" aria-hidden />
+                  PSO Official Forecourt
+                </p>
+                <h3 className="mt-6 font-display text-[clamp(1.4rem,2vw,1.7rem)] font-normal leading-[1.15] tracking-[-0.01em]">
+                  PSO Station (Raiwind Lahore)
+                </h3>
+                <p className="mt-5 max-w-[22rem] text-[15px] leading-7 text-mashal-ink-soft">
+                  Raiwind Road flagship forecourt, Shop Stop, on-site 24/7 ATM, Altron High Octane
+                  &amp; Euro-5 diesel.
+                </p>
+                <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3">
+                  <TextLink href={psoStation.googleMapsUrl} className="text-pso-green">
+                    Map route
+                  </TextLink>
+                  <TextLink
+                    href={`https://wa.me/${psoStation.whatsapp}?text=Hello%20Mashal%20PSO%20Raiwind%20Lahore`}
+                  >
+                    WhatsApp
+                  </TextLink>
                 </div>
               </div>
-            </motion.div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Form & corporate details */}
+      <section className="bg-mashal-bone">
+        <div className="mx-auto max-w-[1320px] px-6 py-20 lg:px-10 lg:py-28">
+          <div className="grid grid-cols-1 gap-20 lg:grid-cols-12 lg:gap-12">
+            <Reveal className="lg:col-span-7">
+              <ContactForm />
+            </Reveal>
+
+            <Reveal delay={0.12} className="lg:col-span-4 lg:col-start-9">
+              <aside className="lg:sticky lg:top-32">
+                <div className="border-t border-mashal-charcoal/20 pt-8">
+                  <p className="text-[13px] font-medium uppercase tracking-[0.14em] text-mashal-gold-muted">
+                    Punjab, Pakistan
+                  </p>
+                  <h3 className="mt-5 font-display text-[clamp(1.4rem,2vw,1.7rem)] font-normal tracking-[-0.01em]">
+                    Corporate headquarters
+                  </h3>
+
+                  <dl className="mt-9 divide-y divide-mashal-line border-y border-mashal-line">
+                    <div className="py-5">
+                      <dt className="text-[13px] uppercase tracking-[0.14em] text-mashal-ink-soft">
+                        Address
+                      </dt>
+                      <dd className="mt-2 text-[15px] leading-7">{mashalInfo.headquarters}</dd>
+                    </div>
+                    <div className="py-5">
+                      <dt className="text-[13px] uppercase tracking-[0.14em] text-mashal-ink-soft">
+                        Telephone
+                      </dt>
+                      <dd className="mt-2 text-[15px]">
+                        <a
+                          href={`tel:${mashalInfo.centralPhone}`}
+                          className="tabular-nums transition-colors duration-500 hover:text-mashal-gold-deep"
+                        >
+                          {mashalInfo.centralPhoneDisplay}
+                        </a>
+                      </dd>
+                    </div>
+                    <div className="py-5">
+                      <dt className="text-[13px] uppercase tracking-[0.14em] text-mashal-ink-soft">
+                        Email
+                      </dt>
+                      <dd className="mt-2 break-all text-[15px]">
+                        <a
+                          href={`mailto:${mashalInfo.centralEmail}`}
+                          className="transition-colors duration-500 hover:text-mashal-gold-deep"
+                        >
+                          {mashalInfo.centralEmail}
+                        </a>
+                      </dd>
+                    </div>
+                    <div className="py-5">
+                      <dt className="text-[13px] uppercase tracking-[0.14em] text-mashal-ink-soft">
+                        Hours
+                      </dt>
+                      <dd className="mt-2 text-[15px]">
+                        Continuous forecourt operations &middot; Open 24/7
+                      </dd>
+                    </div>
+                  </dl>
+
+                  <p className="mt-9 border-l border-mashal-gold pl-6 text-[15px] leading-7 text-mashal-ink-soft">
+                    <strong className="font-medium text-mashal-charcoal">
+                      Certified physical volume verification.
+                    </strong>{" "}
+                    Test calibration measures (5L / 10L) are accessible upon request before any
+                    fueling transaction.
+                  </p>
+                </div>
+              </aside>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Both station outlets (photo cards kept as-is) */}
+      <section className="bg-white">
+        <div className="mx-auto max-w-[1320px] px-6 py-20 lg:px-10 lg:py-28">
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <Reveal>
+                <Eyebrow>Forecourt coordinates &amp; profiles</Eyebrow>
+              </Reveal>
+              <Reveal delay={0.08}>
+                <h2 className="mt-8 text-balance font-display text-[clamp(1.9rem,3.2vw,2.75rem)] font-normal leading-[1.15] tracking-[-0.015em]">
+                  Both station outlets,{" "}
+                  <span className="text-mashal-gold-deep">side by side.</span>
+                </h2>
+              </Reveal>
+            </div>
+            <Reveal delay={0.16}>
+              <p className="max-w-[24rem] text-[16px] leading-[1.85] text-mashal-ink-soft">
+                Direct location maps, certified fuel grades, and on-site supervisor contacts for
+                both locations.
+              </p>
+            </Reveal>
           </div>
 
-          {/* 4. Both Station Forecourts Side-by-Side */}
-          <div className="mt-16 sm:mt-24 pt-12 sm:pt-16 border-t border-neutral-200/90 space-y-8 sm:space-y-10">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-              <div className="space-y-1.5 max-w-xl">
-                <span className="text-[10px] sm:text-xs font-semibold text-[#8C7238] uppercase tracking-[0.2em] block">
-                  Forecourt Coordinates & Profiles
-                </span>
-                <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-normal text-[#0A111F] tracking-tight">
-                  Both Station Outlets Side by Side
-                </h2>
-              </div>
-              <p className="text-xs sm:text-[13px] text-[#5A6474] max-w-sm leading-relaxed">
-                Direct location maps, certified fuel grades, and on-site supervisor contacts for both locations.
-              </p>
-            </div>
-
+          <div className="mt-12 lg:mt-14">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
               {/* PARCO Station Full Card */}
               <motion.div
@@ -470,57 +400,75 @@ export default function ContactPage() {
               </motion.div>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* 5. Frequently Asked Inquiries (Accordion) */}
-          <div className="mt-16 sm:mt-24 pt-12 sm:pt-16 border-t border-neutral-200/90 max-w-4xl mx-auto space-y-6">
-            <div className="text-center space-y-2">
-              <span className="text-[10px] sm:text-xs font-semibold text-[#8C7238] uppercase tracking-[0.2em] block">
-                Direct Assistance
-              </span>
-              <h2 className="font-serif text-2xl sm:text-3xl font-normal text-[#0A111F] tracking-tight">
-                Frequently Asked Inquiries
-              </h2>
+      {/* 5. Frequently asked inquiries */}
+      <section className="bg-mashal-bone">
+        <div className="mx-auto max-w-[1320px] px-6 py-20 lg:px-10 lg:py-28">
+          <div className="grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-12">
+            <div className="lg:col-span-4">
+              <div className="lg:sticky lg:top-32">
+                <Reveal>
+                  <Eyebrow>Direct assistance</Eyebrow>
+                </Reveal>
+                <Reveal delay={0.08}>
+                  <h2 className="mt-8 text-balance font-display text-[clamp(1.9rem,3vw,2.6rem)] font-normal leading-[1.15] tracking-[-0.015em]">
+                    Frequently asked{" "}
+                    <span className="text-mashal-gold-deep">inquiries.</span>
+                  </h2>
+                </Reveal>
+              </div>
             </div>
 
-            <div className="space-y-3 pt-2">
-              {contactFaqs.map((faq, index) => {
-                const isOpen = openFaq === index;
-                return (
-                  <div
-                    key={index}
-                    className="bg-white border border-neutral-200/90 rounded-2xl overflow-hidden shadow-[0_4px_15px_rgba(0,0,0,0.02)] transition-all"
-                  >
-                    <button
-                      type="button"
-                      onClick={() => setOpenFaq(isOpen ? null : index)}
-                      className="w-full text-left p-4 sm:p-5 flex items-center justify-between gap-4 font-semibold text-xs sm:text-sm text-[#0A111F] hover:bg-neutral-50 transition-colors cursor-pointer"
-                    >
-                      <span className="leading-snug">{faq.q}</span>
-                      <ChevronDown
-                        size={16}
-                        className={`text-[#8C7238] flex-shrink-0 transition-transform duration-300 ${
-                          isOpen ? "rotate-180" : ""
-                        }`}
-                      />
-                    </button>
-                    <AnimatePresence initial={false}>
-                      {isOpen && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="overflow-hidden"
+            <div className="lg:col-span-8">
+              <div className="border-t border-mashal-charcoal/20">
+                {contactFaqs.map((faq, index) => {
+                  const isOpen = openFaq === index;
+                  return (
+                    <div key={index} className="border-b border-mashal-line">
+                      <button
+                        type="button"
+                        onClick={() => setOpenFaq(isOpen ? null : index)}
+                        aria-expanded={isOpen}
+                        aria-controls={`faq-panel-${index}`}
+                        className="group flex w-full cursor-pointer items-start gap-5 py-8 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mashal-gold sm:gap-8"
+                      >
+                        <span className="pt-1.5 font-display text-[17px] tabular-nums text-mashal-gold-muted">
+                          0{index + 1}
+                        </span>
+                        <span className="flex-1 font-display text-[clamp(1.1rem,1.6vw,1.35rem)] font-normal leading-[1.3] tracking-[-0.015em] transition-colors duration-500 group-hover:text-mashal-gold-deep">
+                          {faq.q}
+                        </span>
+                        <span
+                          aria-hidden
+                          className={`mt-1.5 shrink-0 text-mashal-charcoal/50 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${
+                            isOpen ? "rotate-45" : ""
+                          }`}
                         >
-                          <div className="p-4 sm:p-5 pt-0 text-xs sm:text-[13px] text-[#5A6474] leading-relaxed border-t border-neutral-100">
-                            {faq.a}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                );
-              })}
+                          <Plus size={22} strokeWidth={1.2} />
+                        </span>
+                      </button>
+                      <AnimatePresence initial={false}>
+                        {isOpen && (
+                          <motion.div
+                            id={`faq-panel-${index}`}
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.5, ease: EASE }}
+                            className="overflow-hidden"
+                          >
+                            <p className="max-w-[40rem] pb-9 pl-11 text-[15.5px] leading-[1.85] text-mashal-ink-soft sm:pl-[3.75rem]">
+                              {faq.a}
+                            </p>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
@@ -528,4 +476,3 @@ export default function ContactPage() {
     </div>
   );
 }
-

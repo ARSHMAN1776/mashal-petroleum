@@ -1,147 +1,77 @@
-"use client";
-
 import React from "react";
-import Link from "next/link";
-import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  ShieldCheck,
-  Fuel,
-  Clock,
-  Sparkles,
-  MapPin,
-  ChevronRight,
-  Award,
-} from "lucide-react";
-import { FlameIcon } from "@/components/ui/FlameIcon";
-import { ParcoBadge, PsoBadge } from "@/components/ui/BrandBadges";
+import { Eyebrow } from "@/components/ui/Eyebrow";
+import { LuxButton } from "@/components/ui/LuxButton";
+import { TextLink } from "@/components/ui/TextLink";
+import { Reveal } from "@/components/ui/Reveal";
 import { AnimatedPumpDispenser } from "@/components/home/AnimatedPumpDispenser";
+
+const assurances = [
+  { title: "Volumetric check", detail: "Physical measure on request" },
+  { title: "Direct sourcing", detail: "Refinery-sealed Euro 5" },
+  { title: "Open 24/7", detail: "365 continuous days" },
+  { title: "Rest & mart", detail: "M-Mart & Shop Stop" },
+];
 
 export const HeroSection: React.FC = () => {
   return (
-    <section className="relative overflow-hidden bg-[#FAF9F6] text-[#15120D] border-b border-[#EAE5D9]">
-      {/* 1. Ambient Lighting & Luxury Energy Grid */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        {/* Glowing Top Central Warm Gold Light */}
-        <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[850px] sm:w-[1100px] h-[450px] bg-gradient-to-b from-[#C89A3C]/10 via-[#F4EFE4]/50 to-transparent blur-3xl rounded-full" />
-        
-        {/* Subtle PARCO Red Glow on Left */}
-        <div className="absolute top-1/3 -left-48 w-[500px] h-[500px] bg-gradient-to-r from-red-500/5 via-transparent to-transparent blur-3xl rounded-full" />
+    <section className="relative overflow-hidden bg-mashal-bone text-mashal-charcoal">
+      {/* One soft pool of warm light, nothing else */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-48 -top-56 h-[720px] w-[720px] rounded-full bg-[radial-gradient(closest-side,rgba(200,154,60,0.16),transparent)]"
+      />
 
-        {/* Subtle PSO Emerald Glow on Right */}
-        <div className="absolute top-1/3 -right-48 w-[500px] h-[500px] bg-gradient-to-l from-emerald-500/5 via-transparent to-transparent blur-3xl rounded-full" />
+      <div className="relative mx-auto grid max-w-[1320px] grid-cols-1 gap-14 px-6 pb-16 pt-12 lg:grid-cols-12 lg:gap-12 lg:px-10 lg:pb-24 lg:pt-16">
+        <div className="lg:col-span-7">
+          <Reveal>
+            <Eyebrow>Punjab forecourt network</Eyebrow>
+          </Reveal>
 
-        {/* Fine Architectural Grid Texture */}
-        <div 
-          className="absolute inset-0 opacity-[0.035]"
-          style={{
-            backgroundImage: `linear-gradient(to right, #C89A3C 1px, transparent 1px), linear-gradient(to bottom, #C89A3C 1px, transparent 1px)`,
-            backgroundSize: "64px 64px",
-          }}
-        />
-      </div>
-
-      {/* 2. Main Hero Content (2-Column Grid with Animated Pump Dispenser) */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 sm:pt-12 sm:pb-20 lg:pt-16 lg:pb-24">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Left Editorial Text & CTAs (7 cols) */}
-          <motion.div
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 space-y-5 sm:space-y-6 text-left"
-          >
-            {/* Top Gold Eyebrow Pill */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#FAF6EE] border border-[#E6DEC8] shadow-xs">
-              <FlameIcon size={14} className="text-[#C89A3C] animate-pulse" />
-              <span className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] text-[#8C7238] uppercase">
-                PUNJAB FORECOURT NETWORK &bull; ESTABLISHED INTEGRITY
-              </span>
-            </div>
-
-            {/* Editorial Headline */}
-            <h1 className="font-serif text-3xl sm:text-5xl md:text-[50px] lg:text-[54px] leading-[1.12] tracking-tight font-normal text-[#15120D] max-w-2xl">
-              Two iconic forecourts.
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#9E7324] via-[#C89A3C] to-[#8C7238]">
+          <Reveal delay={0.08}>
+            <h1 className="mt-9 max-w-[16ch] text-balance font-display text-[clamp(2.4rem,4.4vw,3.75rem)] font-normal leading-[1.15] tracking-[-0.015em] sm:max-w-none">
+              Two iconic forecourts.{" "}
+              <span className="text-mashal-gold-deep">
                 One uncompromising standard
-              </span>
-              <br />
+              </span>{" "}
               of fuel integrity.
             </h1>
+          </Reveal>
 
-            {/* Supporting Description */}
-            <p className="text-xs sm:text-sm md:text-base text-[#524C42] font-normal leading-relaxed max-w-xl">
-              Mashaal Petroleum operates official Total PARCO (Rahim Yar Khan) and Pakistan State Oil (Raiwind Lahore) forecourts. Dedicated to 100% refinery-sealed fuels, certified digital measurement, and dignified highway hospitality.
+          <Reveal delay={0.16}>
+            <p className="mt-9 max-w-[34rem] text-[17px] leading-[1.8] text-mashal-ink-soft">
+              Mashaal Petroleum operates official Total PARCO (Rahim Yar Khan) and Pakistan State
+              Oil (Raiwind, Lahore) forecourts. Refinery-sealed fuel, certified digital
+              measurement, and dignified highway hospitality.
             </p>
+          </Reveal>
 
-            {/* Action Buttons */}
-            <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
-              <Link
-                href="#stations"
-                className="group inline-flex items-center justify-center gap-2 bg-[#C89A3C] hover:bg-[#B68B34] text-white text-xs sm:text-sm font-semibold px-6 py-3 rounded-full transition-all shadow-[0_4px_20px_rgba(200,154,60,0.22)] hover:shadow-[0_6px_25px_rgba(200,154,60,0.32)] active:scale-95 cursor-pointer"
-              >
-                <span>Explore Forecourt Network</span>
-                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
+          <Reveal delay={0.24} className="mt-11 flex flex-wrap items-center gap-x-9 gap-y-6">
+            <LuxButton href="#stations" variant="dark">
+              Explore the forecourts
+            </LuxButton>
+            <TextLink href="/services">Services &amp; forecourt care</TextLink>
+          </Reveal>
 
-              <Link
-                href="/services"
-                className="group inline-flex items-center justify-center gap-2 bg-white hover:bg-[#FAF6EE] text-[#15120D] text-xs sm:text-sm font-medium px-6 py-3 rounded-full border border-[#E2DBD0] hover:border-[#C89A3C]/40 transition-all shadow-xs active:scale-95 cursor-pointer"
-              >
-                <span>Services &amp; Forecourt Care</span>
-                <ChevronRight size={14} className="text-[#7A7265] group-hover:text-[#15120D] transition-colors" />
-              </Link>
-            </div>
-
-            {/* Trust Metrics Strip */}
-            <div className="pt-6 sm:pt-8 border-t border-[#EAE5D9] grid grid-cols-2 sm:grid-cols-4 gap-4">
-              <div className="space-y-1">
-                <div className="flex items-center gap-1.5 text-[#C89A3C]">
-                  <ShieldCheck size={16} />
-                  <span className="text-xs font-semibold text-[#15120D]">Volumetric Check</span>
+          <Reveal delay={0.32} className="mt-14 lg:mt-16">
+            <dl className="grid grid-cols-2 gap-x-8 gap-y-9 border-t border-mashal-line pt-9 sm:grid-cols-4">
+              {assurances.map((item) => (
+                <div key={item.title}>
+                  <dt className="font-display text-[19px] font-normal tracking-[-0.01em]">
+                    {item.title}
+                  </dt>
+                  <dd className="mt-1.5 text-[13.5px] leading-6 text-mashal-ink-soft">
+                    {item.detail}
+                  </dd>
                 </div>
-                <p className="text-[11px] text-[#7A7265]">Physical measure on request</p>
-              </div>
-
-              <div className="space-y-1">
-                <div className="flex items-center gap-1.5 text-[#C89A3C]">
-                  <Fuel size={16} />
-                  <span className="text-xs font-semibold text-[#15120D]">Direct Sourcing</span>
-                </div>
-                <p className="text-[11px] text-[#7A7265]">Refinery-sealed Euro 5</p>
-              </div>
-
-              <div className="space-y-1">
-                <div className="flex items-center gap-1.5 text-[#C89A3C]">
-                  <Clock size={16} />
-                  <span className="text-xs font-semibold text-[#15120D]">Open 24/7</span>
-                </div>
-                <p className="text-[11px] text-[#7A7265]">365 continuous days</p>
-              </div>
-
-              <div className="space-y-1">
-                <div className="flex items-center gap-1.5 text-[#C89A3C]">
-                  <Sparkles size={16} />
-                  <span className="text-xs font-semibold text-[#15120D]">Rest &amp; Mart</span>
-                </div>
-                <p className="text-[11px] text-[#7A7265]">M-Mart &amp; Shop Stop</p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right Custom Animated Petrol Pump Dispenser (5 cols) */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-5 flex justify-center"
-          >
-            <AnimatedPumpDispenser />
-          </motion.div>
+              ))}
+            </dl>
+          </Reveal>
         </div>
+
+        <Reveal delay={0.2} className="lg:col-span-5 lg:pt-6">
+          <AnimatedPumpDispenser />
+        </Reveal>
       </div>
     </section>
   );
 };
-

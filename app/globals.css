@@ -47,6 +47,13 @@ h1, h2, h3, h4, h5, h6 {
   color: inherit;
 }
 
+/* Headline face: hold Fraunces' optical size at a moderate value so strokes
+   stay sturdy and legible instead of turning hairline-thin at large sizes. */
+.font-display {
+  font-optical-sizing: none;
+  font-variation-settings: "opsz" 36;
+}
+
 /* Subtle selection color matching antique gold */
 ::selection {
   background-color: #C89A3C;

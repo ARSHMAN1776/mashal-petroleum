@@ -17,10 +17,14 @@ const config: Config = {
           "ivory-subtle": "#EBE5D8",
           gold: "#C89A3C",
           "gold-hover": "#B68B34",
-          "gold-muted": "#8C7238",
+          "gold-muted": "#7A6129",
+          "gold-deep": "#96712A",
           muted: "#7A7265",
           border: "#E2DBD0",
           "dark-border": "#2E281F",
+          bone: "#FAF8F5",
+          line: "#E8E2D6",
+          "ink-soft": "#4A4438",
         },
         parco: {
           red: "#C1272D",
@@ -39,6 +43,7 @@ const config: Config = {
       },
       fontFamily: {
         serif: ["var(--font-fraunces)", "Georgia", "serif"],
+        display: ["var(--font-display)", "Georgia", "serif"],
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
       },
       letterSpacing: {

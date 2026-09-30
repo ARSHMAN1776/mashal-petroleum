@@ -4,18 +4,10 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import {
-  CheckCircle,
-  AlertCircle,
-  Loader2,
-  Send,
-  Building2,
-  Fuel,
-  Truck,
-  MessageSquare,
-  Sparkles,
-} from "lucide-react";
+import { AlertCircle, ArrowUpRight, Loader2 } from "lucide-react";
 import { mashalInfo } from "@/lib/station-data";
+import { Eyebrow } from "@/components/ui/Eyebrow";
+import { cn } from "@/lib/utils";
 
 const contactSchema = z.object({
   name: z
@@ -33,6 +25,27 @@ const contactSchema = z.object({
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
+
+const inquiryOptions = [
+  { id: "general", label: "General inquiry", sub: "Corporate & management" },
+  { id: "parco", label: "Total PARCO (RYK)", sub: "Khanpur Road desk" },
+  { id: "pso", label: "PSO (Lahore)", sub: "Raiwind Road desk" },
+  { id: "bulk_fleet", label: "Bulk / fleet supply", sub: "Commercial diesel" },
+] as const;
+
+const fieldBase =
+  "w-full border-0 border-b bg-transparent px-0 py-3 text-[16px] text-mashal-charcoal placeholder:text-[#A59C89] transition-colors duration-500 focus:outline-none focus:ring-0";
+
+const labelBase =
+  "block text-[13px] font-medium uppercase tracking-[0.14em] text-mashal-ink-soft";
+
+const FieldError: React.FC<{ message?: string }> = ({ message }) =>
+  message ? (
+    <p role="alert" className="mt-2.5 flex items-center gap-1.5 text-[13px] text-red-700">
+      <AlertCircle size={13} strokeWidth={1.5} />
+      <span>{message}</span>
+    </p>
+  ) : null;
 
 export const ContactForm: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -63,241 +76,195 @@ export const ContactForm: React.FC = () => {
     reset();
   };
 
-  const inquiryOptions = [
-    {
-      id: "general",
-      label: "General Inquiry",
-      sub: "Corporate & Management",
-      icon: Building2,
-    },
-    {
-      id: "parco",
-      label: "Total PARCO (RYK)",
-      sub: "Khanpur Road Desk",
-      icon: Fuel,
-    },
-    {
-      id: "pso",
-      label: "PSO (Lahore)",
-      sub: "Raiwind Road Desk",
-      icon: Fuel,
-    },
-    {
-      id: "bulk_fleet",
-      label: "Bulk / Fleet Supply",
-      sub: "Commercial Diesel",
-      icon: Truck,
-    },
-  ] as const;
-
   return (
-    <div className="bg-white border border-neutral-200/90 p-6 sm:p-8 lg:p-9 rounded-[24px] shadow-[0_12px_40px_rgba(0,0,0,0.04)] relative overflow-hidden">
-      {/* Decorative top gold gradient accent line */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#C89A3C] to-transparent" />
-
-      <div className="mb-6 sm:mb-7 space-y-1.5">
-        <div className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#8C7238] uppercase tracking-[0.2em]">
-          <Sparkles size={13} className="text-[#C89A3C]" />
-          <span>DIRECT DISPATCH FORM</span>
-        </div>
-        <h3 className="font-serif text-2xl sm:text-3xl font-normal text-[#0A111F] tracking-tight">
-          Send a Direct Message
-        </h3>
-        <p className="text-xs sm:text-[13px] text-[#5A6474] leading-relaxed">
-          Inquiries are routed directly to station supervisors or corporate management.
-        </p>
-      </div>
+    <div>
+      <Eyebrow>Direct dispatch form</Eyebrow>
+      <h3 className="mt-7 font-display text-[clamp(1.9rem,3.2vw,2.8rem)] font-normal leading-[1.1] tracking-[-0.015em]">
+        Send a{" "}
+        <span className="text-mashal-gold-deep">direct message.</span>
+      </h3>
+      <p className="mt-5 max-w-[30rem] text-[15px] leading-7 text-mashal-ink-soft">
+        Inquiries are routed directly to station supervisors or corporate management.
+      </p>
 
       {submitted ? (
-        <div className="bg-[#FAF8F5] border border-[#C89A3C]/40 p-7 sm:p-8 rounded-2xl text-center space-y-4 animate-in fade-in duration-300">
-          <div className="w-12 h-12 rounded-full bg-emerald-100 border border-emerald-300/80 flex items-center justify-center text-emerald-700 mx-auto shadow-sm">
-            <CheckCircle size={24} />
-          </div>
-          <div className="space-y-1">
-            <h4 className="font-serif text-xl sm:text-2xl font-normal text-[#0A111F]">
-              Message Dispatched
-            </h4>
-            <p className="text-xs sm:text-[13px] text-[#5A6474] max-w-md mx-auto leading-relaxed">
-              Thank you for reaching out to Mashaal Petroleum. Our management desk will review your details and respond directly via phone or WhatsApp at{" "}
-              <strong className="text-[#0A111F] font-semibold">{mashalInfo.centralPhoneDisplay}</strong> shortly.
-            </p>
-          </div>
+        <div className="mt-12 border-t border-mashal-charcoal/20 pt-10">
+          <h4 className="font-display text-[clamp(1.4rem,2vw,1.75rem)] font-normal tracking-[-0.01em]">
+            Message dispatched.
+          </h4>
+          <p className="mt-4 max-w-[32rem] text-[15.5px] leading-7 text-mashal-ink-soft">
+            Thank you for reaching out to Mashaal Petroleum. Our management desk will review your
+            details and respond directly via phone or WhatsApp at{" "}
+            <strong className="font-medium text-mashal-charcoal tabular-nums">
+              {mashalInfo.centralPhoneDisplay}
+            </strong>{" "}
+            shortly.
+          </p>
 
-          <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div className="mt-9 flex flex-wrap items-center gap-x-9 gap-y-4">
             <a
               href={`https://wa.me/${mashalInfo.centralWhatsApp}?text=Hello%20Mashaal%20Petroleum,%20I%20just%20submitted%20a%20form%20on%20your%20website.`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#0B4A2D] hover:bg-[#07331F] text-white text-xs font-semibold px-4 py-2.5 rounded-full transition-all shadow-sm"
+              className="group inline-flex items-center gap-5 rounded-full bg-mashal-charcoal py-1.5 pl-7 pr-1.5 text-[14px] font-medium text-mashal-bone transition-[background-color,transform] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-[#2B241A] active:scale-[0.98]"
             >
-              <MessageSquare size={13} />
-              <span>Connect on WhatsApp Now</span>
+              <span>Connect on WhatsApp now</span>
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-mashal-gold text-mashal-charcoal transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:-translate-y-px group-hover:translate-x-[2px] group-hover:scale-105">
+                <ArrowUpRight size={17} strokeWidth={1.5} />
+              </span>
             </a>
             <button
               type="button"
               onClick={() => setSubmitted(false)}
-              className="text-xs font-semibold text-[#8C7238] hover:text-[#0A111F] hover:underline px-3 py-2 transition-colors"
+              className="text-[14px] font-medium text-mashal-gold-muted underline decoration-mashal-gold/40 underline-offset-[6px] transition-colors duration-500 hover:text-mashal-charcoal hover:decoration-mashal-charcoal"
             >
-              Send another message &rarr;
+              Send another message
             </button>
           </div>
         </div>
       ) : (
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
-          {/* Inquiry Category Selector */}
-          <div className="space-y-2">
-            <label className="block text-xs font-semibold text-[#0A111F] uppercase tracking-wider">
-              1. Select Inquiry Nature <span className="text-red-500">*</span>
-            </label>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-              {inquiryOptions.map((opt) => {
-                const IconComponent = opt.icon;
+        <form onSubmit={handleSubmit(onSubmit)} className="mt-12 space-y-12" noValidate>
+          {/* Inquiry category */}
+          <fieldset>
+            <legend className={labelBase}>
+              01 &nbsp;Inquiry nature <span className="text-red-700">*</span>
+            </legend>
+            <div
+              role="radiogroup"
+              aria-label="Inquiry nature"
+              className="mt-5 grid grid-cols-1 border-t border-mashal-charcoal/20 sm:grid-cols-2"
+            >
+              {inquiryOptions.map((opt, i) => {
                 const isSelected = selectedInquiry === opt.id;
                 return (
                   <button
                     key={opt.id}
                     type="button"
+                    role="radio"
+                    aria-checked={isSelected}
                     onClick={() => setValue("inquiryType", opt.id)}
-                    className={`flex flex-col items-start p-3 rounded-xl border text-left transition-all relative ${
-                      isSelected
-                        ? "bg-[#FAF6EE] border-[#C89A3C] text-[#15120D] shadow-xs"
-                        : "bg-[#FAFAFA] border-neutral-200/90 text-[#0A111F] hover:border-neutral-300 hover:bg-neutral-50"
-                    }`}
+                    className={cn(
+                      "group flex items-start gap-4 border-b border-mashal-line py-5 text-left transition-colors duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-mashal-gold",
+                      i % 2 === 0 ? "sm:pr-6" : "sm:pl-6"
+                    )}
                   >
-                    <div className="flex items-center justify-between w-full mb-1.5">
-                      <IconComponent
-                        size={15}
-                        className={isSelected ? "text-[#C89A3C]" : "text-[#8C7238]"}
-                      />
-                      {isSelected && (
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#C89A3C]" />
-                      )}
-                    </div>
-                    <span className="text-xs font-semibold leading-tight line-clamp-1">
-                      {opt.label}
-                    </span>
                     <span
-                      className={`text-[10px] leading-tight line-clamp-1 mt-0.5 ${
-                        isSelected ? "text-[#8C7238]" : "text-[#7A8494]"
-                      }`}
-                    >
-                      {opt.sub}
+                      aria-hidden
+                      className={cn(
+                        "mt-[7px] flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full border transition-colors duration-500",
+                        isSelected
+                          ? "border-mashal-gold bg-mashal-gold"
+                          : "border-mashal-charcoal/30 group-hover:border-mashal-gold"
+                      )}
+                    />
+                    <span>
+                      <span
+                        className={cn(
+                          "block font-display text-[19px] font-normal tracking-[-0.01em] transition-colors duration-500",
+                          isSelected ? "text-mashal-charcoal" : "text-mashal-ink-soft group-hover:text-mashal-charcoal"
+                        )}
+                      >
+                        {opt.label}
+                      </span>
+                      <span className="mt-1 block text-[13px] text-mashal-ink-soft">{opt.sub}</span>
                     </span>
                   </button>
                 );
               })}
             </div>
-            {errors.inquiryType && (
-              <p className="text-xs text-red-600 flex items-center gap-1 mt-1">
-                <AlertCircle size={12} />
-                <span>{errors.inquiryType.message}</span>
-              </p>
-            )}
-          </div>
+            <FieldError message={errors.inquiryType?.message} />
+          </fieldset>
 
-          {/* Name & Phone Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {/* Name Field */}
-            <div className="space-y-1.5">
-              <label
-                htmlFor="name"
-                className="block text-xs font-semibold text-[#0A111F]"
-              >
-                Full Name <span className="text-red-500">*</span>
+          {/* Name & phone */}
+          <div className="grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2">
+            <div>
+              <label htmlFor="name" className={labelBase}>
+                02 &nbsp;Full name <span className="text-red-700">*</span>
               </label>
               <input
                 id="name"
                 type="text"
+                autoComplete="name"
                 placeholder="e.g. Tariq Mahmood"
+                aria-invalid={errors.name ? true : undefined}
                 {...register("name")}
-                className={`w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border bg-[#FAFAFA] text-[#0A111F] placeholder:text-[#9A9180] transition-all focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#C89A3C]/30 focus:border-[#C89A3C] ${
-                  errors.name ? "border-red-500 bg-red-50/20" : "border-neutral-200"
-                }`}
+                className={cn(
+                  fieldBase,
+                  errors.name
+                    ? "border-red-700"
+                    : "border-mashal-charcoal/25 focus:border-mashal-gold"
+                )}
               />
-              {errors.name && (
-                <p className="text-xs text-red-600 flex items-center gap-1 mt-1">
-                  <AlertCircle size={12} />
-                  <span>{errors.name.message}</span>
-                </p>
-              )}
+              <FieldError message={errors.name?.message} />
             </div>
 
-            {/* Phone Field */}
-            <div className="space-y-1.5">
-              <label
-                htmlFor="phone"
-                className="block text-xs font-semibold text-[#0A111F]"
-              >
-                Phone / WhatsApp Number <span className="text-red-500">*</span>
+            <div>
+              <label htmlFor="phone" className={labelBase}>
+                03 &nbsp;Phone / WhatsApp <span className="text-red-700">*</span>
               </label>
               <input
                 id="phone"
                 type="tel"
-                placeholder="0304 2774444 or +92 304 2774444"
+                autoComplete="tel"
+                placeholder="0304 2774444"
+                aria-invalid={errors.phone ? true : undefined}
                 {...register("phone")}
-                className={`w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border bg-[#FAFAFA] text-[#0A111F] placeholder:text-[#9A9180] transition-all focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#C89A3C]/30 focus:border-[#C89A3C] ${
-                  errors.phone ? "border-red-500 bg-red-50/20" : "border-neutral-200"
-                }`}
+                className={cn(
+                  fieldBase,
+                  errors.phone
+                    ? "border-red-700"
+                    : "border-mashal-charcoal/25 focus:border-mashal-gold"
+                )}
               />
-              {errors.phone && (
-                <p className="text-xs text-red-600 flex items-center gap-1 mt-1">
-                  <AlertCircle size={12} />
-                  <span>{errors.phone.message}</span>
-                </p>
-              )}
+              <FieldError message={errors.phone?.message} />
             </div>
           </div>
 
-          {/* Message Field */}
-          <div className="space-y-1.5">
-            <div className="flex items-center justify-between">
-              <label
-                htmlFor="message"
-                className="block text-xs font-semibold text-[#0A111F]"
-              >
-                Inquiry Details or Requirements <span className="text-red-500">*</span>
+          {/* Message */}
+          <div>
+            <div className="flex items-baseline justify-between gap-4">
+              <label htmlFor="message" className={labelBase}>
+                04 &nbsp;Inquiry details <span className="text-red-700">*</span>
               </label>
-              <span className="text-[10px] text-[#7A8494]">Min 10 characters</span>
+              <span className="text-[12px] text-mashal-ink-soft">Min. 10 characters</span>
             </div>
             <textarea
               id="message"
               rows={4}
-              placeholder="Describe your inquiry, fleet volume requirements, scheduled arrival, or forecourt feedback..."
+              placeholder="Describe your inquiry, fleet volume requirements, scheduled arrival, or forecourt feedback."
+              aria-invalid={errors.message ? true : undefined}
               {...register("message")}
-              className={`w-full text-xs sm:text-sm p-3.5 rounded-xl border bg-[#FAFAFA] text-[#0A111F] placeholder:text-[#9A9180] transition-all focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#C89A3C]/30 focus:border-[#C89A3C] leading-relaxed ${
-                errors.message ? "border-red-500 bg-red-50/20" : "border-neutral-200"
-              }`}
+              className={cn(
+                fieldBase,
+                "resize-none leading-7",
+                errors.message
+                  ? "border-red-700"
+                  : "border-mashal-charcoal/25 focus:border-mashal-gold"
+              )}
             />
-            {errors.message && (
-              <p className="text-xs text-red-600 flex items-center gap-1 mt-1">
-                <AlertCircle size={12} />
-                <span>{errors.message.message}</span>
-              </p>
-            )}
+            <FieldError message={errors.message?.message} />
           </div>
 
-          {/* Submit Button & Direct note */}
-          <div className="pt-1 space-y-3">
+          {/* Submit */}
+          <div className="space-y-5">
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full inline-flex items-center justify-center gap-2 bg-[#C89A3C] hover:bg-[#B68B34] disabled:bg-neutral-300 text-white text-xs sm:text-sm font-semibold py-3 sm:py-3.5 px-6 rounded-full transition-all shadow-[0_4px_16px_rgba(200,154,60,0.25)] hover:shadow-[0_6px_20px_rgba(200,154,60,0.35)] active:scale-98 group cursor-pointer"
+              className="group inline-flex items-center gap-5 rounded-full bg-mashal-charcoal py-1.5 pl-7 pr-1.5 text-[14px] font-medium text-mashal-bone transition-[background-color,transform,opacity] duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-[#2B241A] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
             >
-              {isSubmitting ? (
-                <>
-                  <Loader2 size={16} className="animate-spin text-white" />
-                  <span>Dispatching Message...</span>
-                </>
-              ) : (
-                <>
-                  <span>Dispatch Inquiries to Management</span>
-                  <Send size={14} className="text-white group-hover:translate-x-1 transition-transform" />
-                </>
-              )}
+              <span>{isSubmitting ? "Dispatching message" : "Dispatch inquiry to management"}</span>
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-mashal-gold text-mashal-charcoal transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:-translate-y-px group-hover:translate-x-[2px] group-hover:scale-105">
+                {isSubmitting ? (
+                  <Loader2 size={17} strokeWidth={1.5} className="animate-spin" />
+                ) : (
+                  <ArrowUpRight size={17} strokeWidth={1.5} />
+                )}
+              </span>
             </button>
 
-            <p className="text-[11px] text-center text-[#7A8494]">
-              🔒 Direct confidential channel &bull; Monitored 24/7 across Rahim Yar Khan & Lahore
+            <p className="text-[13px] text-mashal-ink-soft">
+              A direct, confidential channel &middot; monitored 24/7 across Rahim Yar Khan &amp;
+              Lahore.
             </p>
           </div>
         </form>
@@ -305,4 +272,3 @@ export const ContactForm: React.FC = () => {
     </div>
   );
 };
-
